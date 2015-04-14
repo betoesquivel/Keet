@@ -9,7 +9,7 @@
 #import "TasksViewController.h"
 
 @interface TasksViewController ()
-@property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) NSMutableArray *data;
 @end
 
 @implementation TasksViewController
@@ -19,14 +19,39 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    _data = [[NSArray alloc] initWithObjects:@"tarea1", @"tarea2", @"tarea3", nil];
+    _data = [[NSMutableArray alloc] initWithObjects:@"tarea1", @"tarea2", @"tarea3", nil];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                  target:nil
-                                  action:nil];
+                                  target:self
+                                  action:@selector(addButtonAction:)];
     self.navigationItem.rightBarButtonItem = addButton;
 
+}
+
+- (IBAction)addButtonAction:(id)sender {
+    UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"New ToDo task"
+                                                   message:@"Title for new task:"
+                                                  delegate:self
+                                         cancelButtonTitle:@"Cancel"
+                                         otherButtonTitles:@"Create", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
+
+
+- (void)alertView:(UIAlertView *)alert didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex > 0) {
+        NSString* title = [alert textFieldAtIndex:0].text;
+        if (title.length > 0) {
+            [self addTaskWithTitle:title];
+        }
+    }
+}
+
+- (void)addTaskWithTitle: (NSString*)title {
+    [_data addObject: title];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

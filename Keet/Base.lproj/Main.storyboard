@@ -29,7 +29,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="9jX-ek-XLh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1dB-yk-Ytb"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1dB-yk-Ytb">
+                            <connections>
+                                <action selector="addButtonAction:" destination="x6Q-lf-6F6" id="QRC-2b-pyL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>

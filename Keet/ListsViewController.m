@@ -26,6 +26,31 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
+- (IBAction)addButtonAction:(id)sender {
+    UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"New ToDo List"
+                                                   message:@"Title for new list:"
+                                                  delegate:self
+                                         cancelButtonTitle:@"Cancel"
+                                         otherButtonTitles:@"Create", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
+
+
+- (void)alertView:(UIAlertView *)alert didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex > 0) {
+        NSString* title = [alert textFieldAtIndex:0].text;
+        if (title.length > 0) {
+            [self addListWithTitle:title];
+        }
+    }
+}
+
+- (void)addListWithTitle: (NSString*)title {
+    [_data addObject: title];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

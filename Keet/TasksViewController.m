@@ -7,9 +7,10 @@
 //
 
 #import "TasksViewController.h"
+#import <Parse/Parse.h>
 
 @interface TasksViewController ()
-@property (strong, nonatomic) NSMutableArray *data;
+
 @end
 
 @implementation TasksViewController
@@ -17,17 +18,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    _data = [[NSMutableArray alloc] initWithObjects:@"tarea1", @"tarea2", @"tarea3", nil];
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                   target:self
                                   action:@selector(addButtonAction:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    self.data = [[NSMutableArray alloc] init];
+    [self loadDataFromDatabase];
 
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - New Task
 
 - (IBAction)addButtonAction:(id)sender {
     UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"New ToDo task"
@@ -39,7 +44,6 @@
     [alert show];
 }
 
-
 - (void)alertView:(UIAlertView *)alert didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex > 0) {
         NSString* title = [alert textFieldAtIndex:0].text;
@@ -50,35 +54,53 @@
 }
 
 - (void)addTaskWithTitle: (NSString*)title {
-    [_data addObject: title];
+    [self.data addObject: title];
     [self.tableView reloadData];
+    
+    [self saveDataToDatabase: title];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Database
+
+- (PFQuery *)loadDataFromDatabase {
+    PFQuery *query = [PFQuery queryWithClassName:@"Tarea"];
+    [query whereKey:@"lista" equalTo: self.lista];
+    [query selectKeys: @[@"nombre"]];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
+        if (lists) {
+            for (PFObject *list in lists) {
+                NSString *s = list[@"nombre"];
+                [self.data addObject: s];
+                [self.tableView reloadData];
+            }
+        }
+    }];
+    
+    return query;
+}
+
+- (void)saveDataToDatabase: (NSString *)title {
+    PFObject *task = [PFObject objectWithClassName:@"Tarea"];
+    task[@"nombre"] = title;
+    task[@"creador"] = @"Eduardo";
+    task[@"lista"] = self.lista;
+    [task saveInBackground];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return _data.count;
+    return [self.data count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    cell.textLabel.text = _data[indexPath.row];
+    cell.textLabel.text = self.data[indexPath.row];
     return cell;
 }
 
@@ -120,10 +142,7 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 

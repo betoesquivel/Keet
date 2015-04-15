@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
+    self.data = [[NSMutableArray alloc] init];
     [self loadDataFromDatabase];
 }
 
@@ -29,6 +29,7 @@
 }
 
 #pragma mark - New List
+
 - (IBAction)addButtonAction:(id)sender {
     UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"New ToDo List"
                                                    message:@"Title for new list:"
@@ -52,30 +53,52 @@
     [self.data addObject: title];
     [self.tableView reloadData];
     
-    PFObject *lista = [PFObject objectWithClassName:@"Lista"];
-    lista[@"nombre"] = title;
-    lista[@"creador"] = @"Eduardo";
-    [lista saveInBackground];
+    [self saveDataToDatabase: title];
 }
 
 #pragma mark - Database
 
 - (PFQuery *)loadDataFromDatabase {
-    self.data = [[NSMutableArray alloc] init];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Lista"];
+    PFQuery *query = [PFQuery queryWithClassName: @"Lista"];
     [query selectKeys: @[@"nombre"]];
-    [query findObjectsInBackgroundWithBlock: ^(NSArray *listas, NSError *error) {
-        NSMutableArray *l = [[NSMutableArray alloc] init];
-        
-        for (PFObject *lista in listas) {
-            NSString *s = lista[@"nombre"];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
+        for (PFObject *list in lists) {
+            NSString *s = list[@"nombre"];
             [self.data addObject: s];
             [self.tableView reloadData];
         }
     }];
     
     return query;
+}
+
+- (void)saveDataToDatabase: (NSString *)title {
+    PFObject *list = [PFObject objectWithClassName: @"Lista"];
+    list[@"nombre"] = title;
+    list[@"creador"] = @"Eduardo";
+    [list saveInBackground];
+}
+
+- (void)deleteDataFromDatabase: (NSString *) title {
+    PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
+    [query whereKey: @"lista" equalTo: title];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
+        if (lists) {
+            for (PFObject *list in lists) {
+                [list deleteInBackground];
+            }
+        }
+    }];
+    
+    query = [PFQuery queryWithClassName: @"Lista"];
+    [query whereKey: @"nombre" equalTo: title];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
+        if (lists) {
+            for (PFObject *list in lists) {
+                [list deleteInBackground];
+            }
+        }
+    }];
 }
 
 #pragma mark - Table view data source
@@ -93,6 +116,20 @@
     
     cell.textLabel.text = self.data[indexPath.row];
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSString *listTitle = self.data[indexPath.row];
+        [self.data removeObjectAtIndex: indexPath.row];
+        [self.tableView reloadData];
+        [self deleteDataFromDatabase: listTitle];
+    }
 }
 
 
@@ -135,8 +172,11 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view 
+    if ([[segue identifier] isEqualToString:@"taskSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSString *object = self.data[indexPath.row];
+        [[segue destinationViewController] setLista:object];
+    }
  }
 
 @end

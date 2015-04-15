@@ -17,6 +17,7 @@
 		359CFF111ADC8F000031A416 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 359CFF101ADC8F000031A416 /* Images.xcassets */; };
 		359CFF141ADC8F000031A416 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 359CFF121ADC8F000031A416 /* LaunchScreen.xib */; };
 		359CFF201ADC8F000031A416 /* KeetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 359CFF1F1ADC8F000031A416 /* KeetTests.m */; };
+		4045FFE81ADE021200687CC1 /* Keet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4045FFE71ADE021200687CC1 /* Keet.png */; };
 		405959AD1ADC93DD00FB3B75 /* Simbolo.png in Resources */ = {isa = PBXBuildFile; fileRef = 405959AC1ADC93DD00FB3B75 /* Simbolo.png */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		359CFF191ADC8F000031A416 /* KeetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		359CFF1E1ADC8F000031A416 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		359CFF1F1ADC8F000031A416 /* KeetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeetTests.m; sourceTree = "<group>"; };
+		4045FFE71ADE021200687CC1 /* Keet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keet.png; sourceTree = "<group>"; };
 		405959AC1ADC93DD00FB3B75 /* Simbolo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Simbolo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 		359CFEF41ADC8F000031A416 = {
 			isa = PBXGroup;
 			children = (
+				4045FFE71ADE021200687CC1 /* Keet.png */,
 				405959AC1ADC93DD00FB3B75 /* Simbolo.png */,
 				359CFEFF1ADC8F000031A416 /* Keet */,
 				359CFF1C1ADC8F000031A416 /* KeetTests */,
@@ -219,6 +222,7 @@
 			files = (
 				359CFF0F1ADC8F000031A416 /* Main.storyboard in Resources */,
 				405959AD1ADC93DD00FB3B75 /* Simbolo.png in Resources */,
+				4045FFE81ADE021200687CC1 /* Keet.png in Resources */,
 				359CFF141ADC8F000031A416 /* LaunchScreen.xib in Resources */,
 				359CFF111ADC8F000031A416 /* Images.xcassets in Resources */,
 			);

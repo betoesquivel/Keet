@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>70C40AC9-C669-4811-8762-B9B1B4B93B90</string>
+	<string>0FCF471D-B870-477D-B479-E9DA6853901D</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Keet</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>47B8DDADEF00239E78A2608526030C69A3044914</key>
-		<string>github.com:betoesquivel/Keet.git</string>
+		<string>https://github.com/betoesquivel/Keet.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Keet.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:betoesquivel/Keet.git</string>
+	<string>https://github.com/betoesquivel/Keet.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

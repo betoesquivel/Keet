@@ -33,38 +33,42 @@
     NSString *user = self.txtUser.text;
     NSString *password = self.txtPassword.text;
     
-    //dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-    
     PFQuery *query = [PFQuery queryWithClassName: @"User"];
     [query whereKey: @"username" equalTo: user];
-    //[query whereKey: @"password" equalTo: password];
-    [query getFirstObjectInBackgroundWithBlock: ^(PFObject *user, NSError *error) {
-        if (!error) {
-            self.valido = TRUE;
-        }
-        
-        //dispatch_semaphore_signal(sema);
-    }];
+    [query whereKey: @"password" equalTo: password];
+    [query selectKeys: @[@"username", @"password"]];
     
-    //dispatch_semaphore_wait(sema, 10000);
-    //dispatch_semaphore_signal(sema);
-    
+    PFObject *result = [query getFirstObject];
+
+    if (result)
+        self.valido = TRUE;
+
     return self.valido;
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqual: @"logIn"]) {
+    if ([[segue identifier] isEqualToString: @"logIn"]) {
         if ([self shouldPerformSegueWithIdentifier: [segue identifier] sender: sender])
             NSLog(@"Hola");
+    }
+    else {
+        NSLog(@"Hola");
     }
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     [self verifyLogInInDatabase];
     
-    return [self verifyLogInInDatabase];
+    return self.valido;
 }
 
+- (IBAction)unwind: (UIStoryboardSegue *)segue {
+    self.valido = FALSE;
+}
+
+- (IBAction)btnSubscribe:(id)sender {
+    self.valido = TRUE;
+}
 @end

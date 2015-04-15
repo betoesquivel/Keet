@@ -31,11 +31,11 @@
 #pragma mark - New List
 
 - (IBAction)addButtonAction:(id)sender {
-    UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"New ToDo List"
-                                                   message:@"Title for new list:"
+    UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"Nueva Lista de Tareas"
+                                                   message:@"Nombre de la Lista"
                                                   delegate:self
-                                         cancelButtonTitle:@"Cancel"
-                                         otherButtonTitles:@"Create", nil];
+                                         cancelButtonTitle:@"Cancelar"
+                                         otherButtonTitles:@"Crear", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
 }
@@ -175,7 +175,7 @@
     if ([[segue identifier] isEqualToString:@"taskSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSString *object = self.data[indexPath.row];
-        [[segue destinationViewController] setLista:object];
+        [[segue destinationViewController] setList:object];
     }
  }
 

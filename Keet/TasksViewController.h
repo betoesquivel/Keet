@@ -10,8 +10,12 @@
 
 @interface TasksViewController : UITableViewController
 
-@property (strong, nonatomic) NSString *lista;
+@property (strong, nonatomic) NSString *list;
 
 @property (strong, nonatomic) NSMutableArray *data;
+
+@property (strong, nonatomic) NSString *task;
+
+@property NSInteger priority;
 
 @end

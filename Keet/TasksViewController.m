@@ -7,9 +7,10 @@
 //
 
 #import "TasksViewController.h"
+#import "DetailTaskViewController.h"
 #import <Parse/Parse.h>
 
-@interface TasksViewController ()
+@interface TasksViewController () <ProtocolDetailTask>
 
 @end
 
@@ -35,41 +36,53 @@
 #pragma mark - New Task
 
 - (IBAction)addButtonAction:(id)sender {
-    UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"New ToDo task"
-                                                   message:@"Title for new task:"
+    UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"Nueva Tarea"
+                                                   message:@"Nombre de la Tarea"
                                                   delegate:self
-                                         cancelButtonTitle:@"Cancel"
-                                         otherButtonTitles:@"Create", nil];
+                                         cancelButtonTitle:@"Cancelar"
+                                         otherButtonTitles:@"Crear", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    [alert setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
+    [[alert textFieldAtIndex:1] setSecureTextEntry: NO];
+    
+    UITextField *textFieldDescription = [alert textFieldAtIndex:0];
+    textFieldDescription.placeholder = @"Nueva Tarea";
+    UITextField *textFieldFileName = [alert textFieldAtIndex:1];
+    textFieldFileName.placeholder = @"Número entre 1 -3";
+    
     [alert show];
 }
 
 - (void)alertView:(UIAlertView *)alert didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex > 0) {
-        NSString* title = [alert textFieldAtIndex:0].text;
+        NSString *title = [alert textFieldAtIndex: 0].text;
+        NSString *prioridad = [alert textFieldAtIndex: 1].text;
+        
         if (title.length > 0) {
-            [self addTaskWithTitle:title];
+            if ([prioridad integerValue] >= 1 && [prioridad integerValue] <= 3)
+                [self addTaskWithTitle: title prioridad: prioridad];
         }
     }
 }
 
-- (void)addTaskWithTitle: (NSString*)title {
+- (void)addTaskWithTitle: (NSString*)title prioridad: (NSString *)pri {
     [self.data addObject: title];
     [self.tableView reloadData];
     
-    [self saveDataToDatabase: title];
+    [self saveDataToDatabase: title prioridad: pri];
 }
 
 #pragma mark - Database
 
 - (PFQuery *)loadDataFromDatabase {
-    PFQuery *query = [PFQuery queryWithClassName:@"Tarea"];
-    [query whereKey:@"lista" equalTo: self.lista];
+    PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
+    [query whereKey:@"lista" equalTo: self.list];
     [query selectKeys: @[@"nombre"]];
-    [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
-        if (lists) {
-            for (PFObject *list in lists) {
-                NSString *s = list[@"nombre"];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *tasks, NSError *error) {
+        if (tasks) {
+            for (PFObject *task in tasks) {
+                NSString *s = task[@"nombre"];
                 [self.data addObject: s];
                 [self.tableView reloadData];
             }
@@ -79,12 +92,31 @@
     return query;
 }
 
-- (void)saveDataToDatabase: (NSString *)title {
+- (void)saveDataToDatabase: (NSString *)title prioridad: (NSString *)pri {
     PFObject *task = [PFObject objectWithClassName:@"Tarea"];
     task[@"nombre"] = title;
     task[@"creador"] = @"Eduardo";
-    task[@"lista"] = self.lista;
+    task[@"lista"] = self.list;
+    task[@"prioridad"] = pri;
     [task saveInBackground];
+}
+
+- (NSInteger)getPriorityFromTask: (NSString *)title {
+    NSInteger pri;
+    
+    PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
+    [query whereKey: @"nombre" equalTo: title];
+    [query selectKeys: @[@"prioridad"]];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *tasks, NSError *error) {
+        if (tasks) {
+            for (PFObject *task in tasks) {
+                NSInteger p = task[@"prioridad"];
+                NSLog(@"%l", p);
+            }
+        }
+    }];
+    
+    return 0;
 }
 
 #pragma mark - Table view data source
@@ -104,46 +136,25 @@
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"detailTask"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSString *object = self.data[indexPath.row];
+        
+        [[segue destinationViewController] setList: self.list];
+        [[segue destinationViewController] setOldTask: object];
+        //[self getPriorityFromTask: object];
+        //[[segue destinationViewController] setPriority: @"1"];
+        [[segue destinationViewController] setDelegado: self];
+    }
 }
 
+#pragma mark - Protocolo AgregarContacto
+
+- (void) quitaVista {
+    [self.navigationController popViewControllerAnimated: YES];
+}
 
 @end

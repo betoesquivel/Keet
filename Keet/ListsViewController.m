@@ -8,6 +8,7 @@
 
 #import "ListsViewController.h"
 #import "TasksViewController.h"
+#import <Parse/Parse.h>
 
 @interface ListsViewController ()
 @property (strong, nonatomic) NSMutableArray *data;
@@ -45,6 +46,11 @@
 - (void)addListWithTitle: (NSString*)title {
     [_data addObject: title];
     [self.tableView reloadData];
+    
+    PFObject *lista = [PFObject objectWithClassName:@"Lista"];
+    lista[@"nombre"] = title;
+    lista[@"creador"] = @"Eduardo";
+    [lista saveInBackground];
 }
 
 - (void)didReceiveMemoryWarning {

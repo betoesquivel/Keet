@@ -10,14 +10,15 @@
 
 @protocol ProtocolDetailTask <NSObject>
 
-- (void) agregaContacto: (NSString *)nombre withOficina: (NSString *) ofic withTelefono: (NSInteger)tel;
-- (void) quitaVista;
+- (void) updateTask: (NSString *)task withNewName: (NSString *)newTask withPriority: (NSString *)priority;
+- (void) deleteTask: (NSString *)task;
+- (void) completeTask: (NSString *)task withPriority: (NSString *)priority;
 
 @end
 
 @interface DetailTaskViewController : UIViewController
 
-@property (strong, nonatomic) id <ProtocolDetailTask> delegado;
+@property (strong, nonatomic) id <ProtocolDetailTask> delegate;
 
 @property (strong, nonatomic) NSString *list;
 
@@ -25,7 +26,7 @@
 
 @property (strong, nonatomic) NSString *oldTask;
 
-@property (strong, nonatomic) NSString *priority;
+@property (strong, nonatomic) NSString *pri;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtList;
 
@@ -40,5 +41,7 @@
 - (IBAction)save:(id)sender;
 
 - (IBAction)delete:(id)sender;
+
+- (IBAction)complete:(id)sender;
 
 @end

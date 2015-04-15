@@ -21,7 +21,8 @@
     
     self.txtList.text = self.list;
     self.txtTask.text = self.oldTask;
-    self.btnPriority.selectedSegmentIndex = [self.priority integerValue] - 1;
+    NSInteger index = [self.pri integerValue] - 1;
+    [self.btnPriority setSelectedSegmentIndex: index];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,43 +32,19 @@
 - (IBAction)save:(id)sender {
     self.task = self.txtTask.text;
     int theInteger;
-    theInteger = [self.btnPriority selectedSegmentIndex];
+    theInteger = [self.btnPriority selectedSegmentIndex] + 1;
     NSNumber *myNumber = [NSNumber numberWithInt: theInteger];
-    self.priority = [myNumber stringValue];
+    self.pri = [myNumber stringValue];
     
-    [self updateTaskToDatabase];
-    
-    [self.delegado quitaVista];
+    [self.delegate updateTask: self.oldTask withNewName: self.task withPriority: self.pri];
 }
 
 - (IBAction)delete:(id)sender {
-    [self deleteTaskFromDatabase];
-    
-    [self.navigationController popViewControllerAnimated: YES];
+    [self.delegate deleteTask: self.oldTask];
 }
 
-#pragma mark - Database
-
-- (void)updateTaskToDatabase {
-    NSLog(self.oldTask);
-    PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
-    [query whereKey: @"nombre" equalTo: self.oldTask];
-    NSLog(self.oldTask);
-    [query getFirstObjectInBackgroundWithBlock: ^(PFObject *tasks, NSError *error) {
-        if (!error) {
-            NSLog(self.oldTask);
-            [tasks setObject: self.task forKey: @"nombre"];
-            [tasks setObject: self.priority forKey: @"prioridad"];
-            
-            [tasks saveInBackground];
-            NSLog(self.oldTask);
-        }
-    }];
-    NSLog(self.oldTask);
-}
-
-- (void)deleteTaskFromDatabase {
-    
+- (IBAction)complete:(id)sender {
+    [self.delegate completeTask: self.oldTask withPriority: self.pri];
 }
 
 @end

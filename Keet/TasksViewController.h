@@ -16,6 +16,6 @@
 
 @property (strong, nonatomic) NSString *task;
 
-@property NSInteger priority;
+@property (strong, nonatomic) NSMutableArray *priority;
 
 @end

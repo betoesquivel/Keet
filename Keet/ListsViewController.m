@@ -20,7 +20,8 @@
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    self.data = [[NSMutableArray alloc] init];
+    self.navigationItem.title = @"Listas";
+    
     [self loadDataFromDatabase];
 }
 
@@ -59,8 +60,11 @@
 #pragma mark - Database
 
 - (PFQuery *)loadDataFromDatabase {
+    self.data = [[NSMutableArray alloc] init];
+    
     PFQuery *query = [PFQuery queryWithClassName: @"Lista"];
     [query selectKeys: @[@"nombre"]];
+    [query orderByAscending: @"nombre"];
     [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
         for (PFObject *list in lists) {
             NSString *s = list[@"nombre"];

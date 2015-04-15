@@ -24,9 +24,9 @@
                                   target:self
                                   action:@selector(addButtonAction:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    self.data = [[NSMutableArray alloc] init];
+    self.navigationItem.title = self.list;
+    
     [self loadDataFromDatabase];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +49,7 @@
     UITextField *textFieldDescription = [alert textFieldAtIndex:0];
     textFieldDescription.placeholder = @"Nueva Tarea";
     UITextField *textFieldFileName = [alert textFieldAtIndex:1];
-    textFieldFileName.placeholder = @"Número entre 1 -3";
+    textFieldFileName.placeholder = @"Número entre 1 - 3";
     
     [alert show];
 }
@@ -66,8 +66,10 @@
     }
 }
 
-- (void)addTaskWithTitle: (NSString*)title prioridad: (NSString *)pri {
+- (void)addTaskWithTitle: (NSString *)title prioridad: (NSString *)pri {
     [self.data addObject: title];
+    [self.priority addObject: pri];
+
     [self.tableView reloadData];
     
     [self saveDataToDatabase: title prioridad: pri];
@@ -76,14 +78,20 @@
 #pragma mark - Database
 
 - (PFQuery *)loadDataFromDatabase {
+    self.data = [[NSMutableArray alloc] init];
+    self.priority = [[NSMutableArray alloc] init];
+    
     PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
     [query whereKey:@"lista" equalTo: self.list];
-    [query selectKeys: @[@"nombre"]];
+    [query selectKeys: @[@"nombre", @"prioridad"]];
+    [query orderByDescending: @"prioridad"];
     [query findObjectsInBackgroundWithBlock: ^(NSArray *tasks, NSError *error) {
         if (tasks) {
             for (PFObject *task in tasks) {
                 NSString *s = task[@"nombre"];
+                NSString *p = task[@"prioridad"];
                 [self.data addObject: s];
+                [self.priority addObject: p];
                 [self.tableView reloadData];
             }
         }
@@ -101,22 +109,42 @@
     [task saveInBackground];
 }
 
-- (NSInteger)getPriorityFromTask: (NSString *)title {
-    NSInteger pri;
-    
+- (void)updateTaskToDatabase: (NSString *)title withNewTitle: (NSString *)newTitle withPriority: (NSString *)pri {
     PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
     [query whereKey: @"nombre" equalTo: title];
-    [query selectKeys: @[@"prioridad"]];
+    [query whereKey: @"lista" equalTo: self.list];
+    [query getFirstObjectInBackgroundWithBlock: ^(PFObject *tasks, NSError *error) {
+        if (!error) {
+            [tasks setObject: newTitle forKey: @"nombre"];
+            [tasks setObject: pri forKey: @"prioridad"];
+            
+            [tasks saveInBackground];
+        }
+    }];
+}
+
+- (void)deleteTaskFromDatabase: (NSString *)title {
+    PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
+    [query whereKey: @"nombre" equalTo: title];
+    [query whereKey: @"lista" equalTo: self.list];
     [query findObjectsInBackgroundWithBlock: ^(NSArray *tasks, NSError *error) {
         if (tasks) {
             for (PFObject *task in tasks) {
-                NSInteger p = task[@"prioridad"];
-                NSLog(@"%l", p);
+                [task deleteInBackground];
             }
         }
     }];
+}
+
+- (void)completeTaskInDatabase:(NSString *)title withPriority: (NSString *)pri {
+    PFObject *task = [PFObject objectWithClassName: @"TareasCompletadas"];
+    task[@"nombre"] = title;
+    task[@"usuario"] = @"Eduardo";
+    task[@"lista"] = self.list;
+    task[@"prioridad"] = pri;
+    [task saveInBackground];
     
-    return 0;
+    [self deleteTaskFromDatabase: title];
 }
 
 #pragma mark - Table view data source
@@ -131,8 +159,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    NSString *subtitle = [[NSString alloc] initWithFormat: @"Prioridad "];
+    subtitle = [subtitle stringByAppendingString: self.priority[indexPath.row]];
     
     cell.textLabel.text = self.data[indexPath.row];
+    cell.detailTextLabel.text = subtitle;
+    
     return cell;
 }
 
@@ -142,19 +174,51 @@
     if ([[segue identifier] isEqualToString:@"detailTask"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSString *object = self.data[indexPath.row];
-        
+        NSString *pri = self.priority[indexPath.row];
+
         [[segue destinationViewController] setList: self.list];
         [[segue destinationViewController] setOldTask: object];
-        //[self getPriorityFromTask: object];
-        //[[segue destinationViewController] setPriority: @"1"];
-        [[segue destinationViewController] setDelegado: self];
+        [[segue destinationViewController] setPri: pri];
+        [[segue destinationViewController] setDelegate: self];
     }
 }
 
-#pragma mark - Protocolo AgregarContacto
+- (IBAction)unwind: (UIStoryboardSegue *)segue {
+    
+}
 
-- (void) quitaVista {
-    [self.navigationController popViewControllerAnimated: YES];
+#pragma mark - Protocol Detail Task
+
+- (void) updateTask: (NSString *)task withNewName: (NSString *)newTask withPriority: (NSString *)priority {
+    NSInteger index = [self.data indexOfObject: task];
+    
+    [self.data removeObjectAtIndex: index];
+    [self.priority removeObjectAtIndex: index];
+    [self.data addObject: newTask];
+    [self.priority addObject: priority];
+    
+    [self.tableView reloadData];
+    [self updateTaskToDatabase: task withNewTitle:newTask withPriority: priority];
+}
+
+- (void) deleteTask: (NSString *)task {
+    NSInteger index = [self.data indexOfObject: task];
+    
+    [self.data removeObjectAtIndex: index];
+    [self.priority removeObjectAtIndex: index];
+    
+    [self.tableView reloadData];
+    [self deleteTaskFromDatabase: task];
+}
+
+- (void) completeTask: (NSString *)task withPriority: (NSString *)priority {
+    NSInteger index = [self.data indexOfObject: task];
+    
+    [self.data removeObjectAtIndex: index];
+    [self.priority removeObjectAtIndex: index];
+    
+    [self.tableView reloadData];
+    [self completeTaskInDatabase: task withPriority: priority];
 }
 
 @end

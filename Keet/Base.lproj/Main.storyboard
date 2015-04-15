@@ -242,10 +242,10 @@
             </objects>
             <point key="canvasLocation" x="749.5" y="423.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="xSV-wL-JBP">
             <objects>
-                <viewController id="mu5-yj-AJO" sceneMemberID="viewController">
+                <viewController id="mu5-yj-AJO" customClass="LogInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J3F-fA-6OX"/>
                         <viewControllerLayoutGuide type="bottom" id="Kgq-9Q-Srf"/>
@@ -276,22 +276,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0H-2M-fGG">
-                                <rect key="frame" x="111" y="413" width="153" height="90"/>
-                                <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hce-Lp-jEp">
+                                <rect key="frame" x="109" y="360" width="156" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Iniciar Sesión">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="7hi-uu-E4T"/>
+                                    <segue destination="49e-Tb-3d3" kind="show" identifier="logIn" id="szp-Rc-sl8"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7D-hw-SIh">
+                                <rect key="frame" x="109" y="419" width="156" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Suscribirse">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.74117648599999997" green="0.92941182850000004" blue="0.24313727020000001" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="txtPassword" destination="zAS-lz-3gM" id="rgN-o2-kYQ"/>
+                        <outlet property="txtUser" destination="Dds-qd-R1y" id="9dR-Oy-eSl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NL2-Jw-hGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

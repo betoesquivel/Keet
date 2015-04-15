@@ -4,20 +4,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Lists View Controller-->
         <scene sceneID="OSR-7O-WhD">
             <objects>
-                <tableViewController id="x6Q-lf-6F6" sceneMemberID="viewController">
+                <tableViewController id="x6Q-lf-6F6" customClass="ListsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IZB-bY-T6J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xjr-DL-hRr">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="xjr-DL-hRr">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xjr-DL-hRr" id="7Jt-7E-Lwf">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="sx8-rM-2k4" kind="show" identifier="taskSegue" id="FJB-Db-fSQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -25,12 +28,47 @@
                             <outlet property="delegate" destination="x6Q-lf-6F6" id="Q59-Xr-v7D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9jX-ek-XLh"/>
+                    <navigationItem key="navigationItem" id="9jX-ek-XLh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1dB-yk-Ytb">
+                            <connections>
+                                <action selector="addButtonAction:" destination="x6Q-lf-6F6" id="QRC-2b-pyL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ND1-cU-l28" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1366.5" y="-320.5"/>
+        </scene>
+        <!--Tasks View Controller-->
+        <scene sceneID="OvF-QT-O3l">
+            <objects>
+                <tableViewController id="sx8-rM-2k4" customClass="TasksViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BWz-Br-3o7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="MIx-o3-kbi">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MIx-o3-kbi" id="VM7-rp-Rhg">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sx8-rM-2k4" id="Dbm-gI-nRg"/>
+                            <outlet property="delegate" destination="sx8-rM-2k4" id="HCn-7D-Z7P"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ag5-Gd-lJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1822.5" y="-320.5"/>
         </scene>
         <!--Chat-->
         <scene sceneID="wg7-f3-ORb">

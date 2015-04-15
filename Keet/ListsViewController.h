@@ -10,4 +10,6 @@
 
 @interface ListsViewController : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *data;
+
 @end

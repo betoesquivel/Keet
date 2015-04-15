@@ -11,7 +11,7 @@
 #import <Parse/Parse.h>
 
 @interface ListsViewController ()
-@property (strong, nonatomic) NSMutableArray *data;
+
 @end
 
 @implementation ListsViewController
@@ -19,10 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _data = [[NSMutableArray alloc] initWithObjects:@"super", @"compras", @"ventanas", nil];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    [self loadDataFromDatabase];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - New List
 - (IBAction)addButtonAction:(id)sender {
     UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"New ToDo List"
                                                    message:@"Title for new list:"
@@ -32,7 +38,6 @@
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert show];
 }
-
 
 - (void)alertView:(UIAlertView *)alert didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex > 0) {
@@ -44,7 +49,7 @@
 }
 
 - (void)addListWithTitle: (NSString*)title {
-    [_data addObject: title];
+    [self.data addObject: title];
     [self.tableView reloadData];
     
     PFObject *lista = [PFObject objectWithClassName:@"Lista"];
@@ -53,8 +58,24 @@
     [lista saveInBackground];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+#pragma mark - Database
+
+- (PFQuery *)loadDataFromDatabase {
+    self.data = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Lista"];
+    [query selectKeys: @[@"nombre"]];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *listas, NSError *error) {
+        NSMutableArray *l = [[NSMutableArray alloc] init];
+        
+        for (PFObject *lista in listas) {
+            NSString *s = lista[@"nombre"];
+            [self.data addObject: s];
+            [self.tableView reloadData];
+        }
+    }];
+    
+    return query;
 }
 
 #pragma mark - Table view data source
@@ -64,15 +85,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _data.count;
+    return [self.data count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    cell.textLabel.text = _data[indexPath.row];
+    cell.textLabel.text = self.data[indexPath.row];
     return cell;
 }
 

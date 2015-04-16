@@ -11,7 +11,6 @@
 		351C63231ADC970100DD8FC4 /* TasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 351C63221ADC970100DD8FC4 /* TasksViewController.m */; };
 		359CFF031ADC8F000031A416 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 359CFF021ADC8F000031A416 /* main.m */; };
 		359CFF061ADC8F000031A416 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 359CFF051ADC8F000031A416 /* AppDelegate.m */; };
-		359CFF0C1ADC8F000031A416 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 359CFF0B1ADC8F000031A416 /* SecondViewController.m */; };
 		359CFF0F1ADC8F000031A416 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359CFF0D1ADC8F000031A416 /* Main.storyboard */; };
 		359CFF111ADC8F000031A416 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 359CFF101ADC8F000031A416 /* Images.xcassets */; };
 		359CFF141ADC8F000031A416 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 359CFF121ADC8F000031A416 /* LaunchScreen.xib */; };
@@ -31,8 +30,17 @@
 		4045FFFD1ADE085600687CC1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF41ADE085600687CC1 /* Security.framework */; };
 		4045FFFE1ADE085600687CC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF51ADE085600687CC1 /* StoreKit.framework */; };
 		4045FFFF1ADE085600687CC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF61ADE085600687CC1 /* SystemConfiguration.framework */; };
-		40B0F8161ADEC45D007B9B7A /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0F8151ADEC45D007B9B7A /* LogInViewController.m */; };
 		40B0F8191ADEED4A007B9B7A /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0F8181ADEED4A007B9B7A /* SignUpViewController.m */; };
+		40C285121ADF307A00193004 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C285111ADF307A00193004 /* LogInViewController.m */; };
+		40C2851C1ADF4FB400193004 /* alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C285131ADF4FB400193004 /* alarm@2x.png */; };
+		40C2851D1ADF4FB400193004 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C285141ADF4FB400193004 /* clock@2x.png */; };
+		40C2851E1ADF4FB400193004 /* cog_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C285151ADF4FB400193004 /* cog_01@2x.png */; };
+		40C2851F1ADF4FB400193004 /* cog_02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C285161ADF4FB400193004 /* cog_02@2x.png */; };
+		40C285201ADF4FB400193004 /* graph_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C285171ADF4FB400193004 /* graph_bar@2x.png */; };
+		40C285211ADF4FB400193004 /* pencil@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C285181ADF4FB400193004 /* pencil@2x.png */; };
+		40C285221ADF4FB400193004 /* people_family@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C285191ADF4FB400193004 /* people_family@2x.png */; };
+		40C285231ADF4FB400193004 /* speech_bubble_transparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C2851A1ADF4FB400193004 /* speech_bubble_transparent@2x.png */; };
+		40C285241ADF4FB400193004 /* speech_bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40C2851B1ADF4FB400193004 /* speech_bubble@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		351C631E1ADC96E400DD8FC4 /* ListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListsViewController.h; sourceTree = "<group>"; };
 		351C631F1ADC96E400DD8FC4 /* ListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListsViewController.m; sourceTree = "<group>"; };
 		351C63211ADC970100DD8FC4 /* TasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksViewController.h; sourceTree = "<group>"; };
 		351C63221ADC970100DD8FC4 /* TasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksViewController.m; sourceTree = "<group>"; };
@@ -55,8 +62,6 @@
 		359CFF021ADC8F000031A416 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		359CFF041ADC8F000031A416 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		359CFF051ADC8F000031A416 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		359CFF0A1ADC8F000031A416 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		359CFF0B1ADC8F000031A416 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		359CFF0E1ADC8F000031A416 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		359CFF101ADC8F000031A416 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		359CFF131ADC8F000031A416 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -79,10 +84,20 @@
 		4045FFF41ADE085600687CC1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4045FFF51ADE085600687CC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4045FFF61ADE085600687CC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		40B0F8141ADEC45D007B9B7A /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
-		40B0F8151ADEC45D007B9B7A /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		40B0F8171ADEED4A007B9B7A /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		40B0F8181ADEED4A007B9B7A /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		40C2850F1ADF2F6600193004 /* ListsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListsViewController.h; sourceTree = "<group>"; };
+		40C285101ADF307A00193004 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogInViewController.h; path = ../LogInViewController.h; sourceTree = "<group>"; };
+		40C285111ADF307A00193004 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogInViewController.m; path = ../LogInViewController.m; sourceTree = "<group>"; };
+		40C285131ADF4FB400193004 /* alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alarm@2x.png"; path = "../../../../../Downloads/app-bits_free_tabbar_icons/retina/alarm@2x.png"; sourceTree = "<group>"; };
+		40C285141ADF4FB400193004 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock@2x.png"; path = "../../../../../Downloads/app-bits_free_tabbar_icons/retina/clock@2x.png"; sourceTree = "<group>"; };
+		40C285151ADF4FB400193004 /* cog_01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cog_01@2x.png"; path = "../../../../../Downloads/app-bits_free_tabbar_icons/retina/cog_01@2x.png"; sourceTree = "<group>"; };
+		40C285161ADF4FB400193004 /* cog_02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cog_02@2x.png"; path = "../../../../../Downloads/app-bits_free_tabbar_icons/retina/cog_02@2x.png"; sourceTree = "<group>"; };
+		40C285171ADF4FB400193004 /* graph_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "graph_bar@2x.png"; path = "../../../../../Downloads/app-bits_free_tabbar_icons/retina/graph_bar@2x.png"; sourceTree = "<group>"; };
+		40C285181ADF4FB400193004 /* pencil@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pencil@2x.png"; path = "../../../../../Downloads/app-bits_free_tabbar_icons/retina/pencil@2x.png"; sourceTree = "<group>"; };
+		40C285191ADF4FB400193004 /* people_family@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "people_family@2x.png"; path = "../../../../../Downloads/app-bits_free_tabbar_icons/retina/people_family@2x.png"; sourceTree = "<group>"; };
+		40C2851A1ADF4FB400193004 /* speech_bubble_transparent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "speech_bubble_transparent@2x.png"; path = "../../../../../Downloads/app-bits_free_tabbar_icons/retina/speech_bubble_transparent@2x.png"; sourceTree = "<group>"; };
+		40C2851B1ADF4FB400193004 /* speech_bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "speech_bubble@2x.png"; path = "../../../../../Downloads/app-bits_free_tabbar_icons/retina/speech_bubble@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,16 +155,14 @@
 			isa = PBXGroup;
 			children = (
 				359CFF041ADC8F000031A416 /* AppDelegate.h */,
-				40B0F8141ADEC45D007B9B7A /* LogInViewController.h */,
+				40C285101ADF307A00193004 /* LogInViewController.h */,
+				40C2850F1ADF2F6600193004 /* ListsViewController.h */,
 				40B0F8171ADEED4A007B9B7A /* SignUpViewController.h */,
-				359CFF0A1ADC8F000031A416 /* SecondViewController.h */,
-				351C631E1ADC96E400DD8FC4 /* ListsViewController.h */,
 				351C63211ADC970100DD8FC4 /* TasksViewController.h */,
 				4045003D1ADE310800687CC1 /* DetailTaskViewController.h */,
 				359CFF051ADC8F000031A416 /* AppDelegate.m */,
-				40B0F8151ADEC45D007B9B7A /* LogInViewController.m */,
+				40C285111ADF307A00193004 /* LogInViewController.m */,
 				40B0F8181ADEED4A007B9B7A /* SignUpViewController.m */,
-				359CFF0B1ADC8F000031A416 /* SecondViewController.m */,
 				351C631F1ADC96E400DD8FC4 /* ListsViewController.m */,
 				351C63221ADC970100DD8FC4 /* TasksViewController.m */,
 				4045003E1ADE310800687CC1 /* DetailTaskViewController.m */,
@@ -190,6 +203,15 @@
 		404500041ADE087700687CC1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				40C285131ADF4FB400193004 /* alarm@2x.png */,
+				40C285141ADF4FB400193004 /* clock@2x.png */,
+				40C285151ADF4FB400193004 /* cog_01@2x.png */,
+				40C285161ADF4FB400193004 /* cog_02@2x.png */,
+				40C285171ADF4FB400193004 /* graph_bar@2x.png */,
+				40C285181ADF4FB400193004 /* pencil@2x.png */,
+				40C285191ADF4FB400193004 /* people_family@2x.png */,
+				40C2851A1ADF4FB400193004 /* speech_bubble_transparent@2x.png */,
+				40C2851B1ADF4FB400193004 /* speech_bubble@2x.png */,
 				4045FFE71ADE021200687CC1 /* Keet.png */,
 			);
 			name = Images;
@@ -297,7 +319,16 @@
 			files = (
 				359CFF0F1ADC8F000031A416 /* Main.storyboard in Resources */,
 				4045FFE81ADE021200687CC1 /* Keet.png in Resources */,
+				40C2851E1ADF4FB400193004 /* cog_01@2x.png in Resources */,
 				359CFF141ADC8F000031A416 /* LaunchScreen.xib in Resources */,
+				40C285221ADF4FB400193004 /* people_family@2x.png in Resources */,
+				40C285201ADF4FB400193004 /* graph_bar@2x.png in Resources */,
+				40C2851F1ADF4FB400193004 /* cog_02@2x.png in Resources */,
+				40C2851D1ADF4FB400193004 /* clock@2x.png in Resources */,
+				40C285211ADF4FB400193004 /* pencil@2x.png in Resources */,
+				40C285241ADF4FB400193004 /* speech_bubble@2x.png in Resources */,
+				40C2851C1ADF4FB400193004 /* alarm@2x.png in Resources */,
+				40C285231ADF4FB400193004 /* speech_bubble_transparent@2x.png in Resources */,
 				359CFF111ADC8F000031A416 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,10 +347,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40B0F8161ADEC45D007B9B7A /* LogInViewController.m in Sources */,
+				40C285121ADF307A00193004 /* LogInViewController.m in Sources */,
 				351C63201ADC96E400DD8FC4 /* ListsViewController.m in Sources */,
 				4045003F1ADE310800687CC1 /* DetailTaskViewController.m in Sources */,
-				359CFF0C1ADC8F000031A416 /* SecondViewController.m in Sources */,
 				359CFF061ADC8F000031A416 /* AppDelegate.m in Sources */,
 				359CFF031ADC8F000031A416 /* main.m in Sources */,
 				40B0F8191ADEED4A007B9B7A /* SignUpViewController.m in Sources */,

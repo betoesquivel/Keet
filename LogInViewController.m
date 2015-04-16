@@ -34,22 +34,22 @@
     NSString *password = self.txtPassword.text;
     
     PFQuery *query = [PFQuery queryWithClassName: @"User"];
-    [query whereKey: @"username" equalTo: user];
+    [query whereKey: @"email" equalTo: user];
     [query whereKey: @"password" equalTo: password];
     [query selectKeys: @[@"username", @"password"]];
     
     PFObject *result = [query getFirstObject];
-
+    
     if (result)
         self.valido = TRUE;
-
+    
     return self.valido;
 }
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString: @"logIn"]) {
+    if ([[segue identifier] isEqualToString: @"logIn"]) {
         if ([self shouldPerformSegueWithIdentifier: [segue identifier] sender: sender])
             NSLog(@"Hola");
     }

@@ -86,10 +86,10 @@
 - (void)deleteDataFromDatabase: (NSString *) title {
     PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
     [query whereKey: @"lista" equalTo: title];
-    [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
-        if (lists) {
-            for (PFObject *list in lists) {
-                [list deleteInBackground];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *tasks, NSError *error) {
+        if (tasks) {
+            for (PFObject *task in tasks) {
+                [task deleteInBackground];
             }
         }
     }];

@@ -8,6 +8,7 @@
 
 #import "ListsViewController.h"
 #import "TasksViewController.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 
 @interface ListsViewController ()
@@ -77,9 +78,11 @@
 }
 
 - (void)saveDataToDatabase: (NSString *)title {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
     PFObject *list = [PFObject objectWithClassName: @"Lista"];
     list[@"nombre"] = title;
-    list[@"creador"] = @"Eduardo";
+    list[@"creador"] = appDelegate.user;
     [list saveInBackground];
 }
 

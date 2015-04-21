@@ -8,6 +8,7 @@
 
 #import "TasksViewController.h"
 #import "DetailTaskViewController.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 
 @interface TasksViewController () <ProtocolDetailTask>
@@ -137,9 +138,11 @@
 }
 
 - (void)completeTaskInDatabase:(NSString *)title withPriority: (NSString *)pri {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     PFObject *task = [PFObject objectWithClassName: @"TareasCompletadas"];
     task[@"nombre"] = title;
-    task[@"usuario"] = @"Eduardo";
+    task[@"usuario"] = appDelegate.user;
     task[@"lista"] = self.list;
     task[@"prioridad"] = pri;
     [task saveInBackground];

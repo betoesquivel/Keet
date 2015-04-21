@@ -7,6 +7,7 @@
 //
 
 #import "LogInViewController.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 
 @interface LogInViewController ()
@@ -21,6 +22,7 @@
     [super viewDidLoad];
     
     self.valido = FALSE;
+    self.activityIndicator.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,9 +42,13 @@
     
     PFObject *result = [query getFirstObject];
     
-    if (result)
+    if (result) {
         self.valido = TRUE;
-    
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        appDelegate.user = user;
+    }
+
     return self.valido;
 }
 

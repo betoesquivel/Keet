@@ -2,6 +2,7 @@ dependencies: \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/ListsViewController.m \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/ListsViewController.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/TasksViewController.h \
+  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/AppDelegate.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PF_Twitter.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PFTwitterUtils.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PFPush.h \

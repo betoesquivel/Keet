@@ -12,5 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) NSString *family;
+
+@property (strong, nonatomic) NSString *user;
 
 @end

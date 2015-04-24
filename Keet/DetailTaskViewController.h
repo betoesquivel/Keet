@@ -28,15 +28,13 @@
 
 @property (strong, nonatomic) NSString *pri;
 
-@property (weak, nonatomic) IBOutlet UITextField *txtList;
+@property (weak, nonatomic) IBOutlet UILabel *lblList;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtTask;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *btnPriority;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnDelete;
-
-@property (weak, nonatomic) IBOutlet UIButton *btnSave;
 
 - (IBAction)save:(id)sender;
 

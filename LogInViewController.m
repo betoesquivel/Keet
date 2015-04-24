@@ -22,11 +22,18 @@
     [super viewDidLoad];
     
     self.valido = FALSE;
-    self.activityIndicator.hidden = YES;
+    self.lblMessage.text = @"";
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(quitarTeclado)];
+    [self.view addGestureRecognizer: tap];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void) quitarTeclado {
+    [self.view endEditing: YES];
 }
 
 #pragma mark - Database
@@ -68,11 +75,14 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     [self verifyLogInInDatabase];
     
+    if (self.valido == false)
+        self.lblMessage.text = @"Usuario o contraseña inválidos";
+    
     return self.valido;
 }
 
 - (IBAction)unwind: (UIStoryboardSegue *)segue {
-    self.valido = FALSE;
+    [self viewDidLoad];
 }
 
 - (IBAction)btnSubscribe:(id)sender {

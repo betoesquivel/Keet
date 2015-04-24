@@ -23,7 +23,7 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    NSString *title = [[NSString alloc] initWithFormat: @"Familia %@", appDelegate.family];
+    NSString *title = [[NSString alloc] initWithFormat: @"Fam. %@", appDelegate.family];
     self.navigationItem.title = title;
     
     [self loadDataFromDatabase];

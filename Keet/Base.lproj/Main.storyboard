@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--Lists View Controller-->
+        <!--Lists-->
         <scene sceneID="OSR-7O-WhD">
             <objects>
-                <tableViewController id="x6Q-lf-6F6" customClass="ListsViewController" sceneMemberID="viewController">
+                <tableViewController title="Lists" id="x6Q-lf-6F6" customClass="ListsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IZB-bY-T6J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="1040.5" y="-794.5"/>
         </scene>
-        <!--Title-->
+        <!--Tasks-->
         <scene sceneID="OvF-QT-O3l">
             <objects>
-                <tableViewController id="sx8-rM-2k4" customClass="TasksViewController" sceneMemberID="viewController">
+                <tableViewController title="Tasks" id="sx8-rM-2k4" customClass="TasksViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BWz-Br-3o7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="dZA-8h-Hg3" kind="presentation" identifier="detailTask" id="wpx-Ye-Myi"/>
+                                    <segue destination="dZA-8h-Hg3" kind="show" identifier="detailTask" id="CUh-cC-LeR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="1540.5" y="-794.5"/>
         </scene>
-        <!--Title-->
+        <!--Detail Task-->
         <scene sceneID="cG8-70-RHI">
             <objects>
-                <viewController id="dZA-8h-Hg3" customClass="DetailTaskViewController" sceneMemberID="viewController">
+                <viewController title="Detail Task" id="dZA-8h-Hg3" customClass="DetailTaskViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zmh-A2-Abe"/>
                         <viewControllerLayoutGuide type="bottom" id="Oqg-Bx-ZQ3"/>
@@ -148,30 +148,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOQ-t2-Saz">
-                                <rect key="frame" x="212" y="375" width="78" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Guardar">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="save:" destination="dZA-8h-Hg3" eventType="touchUpInside" id="kmM-1h-lfR"/>
-                                    <segue destination="7IT-IZ-us3" kind="unwind" unwindAction="unwind:" id="6tn-ub-nDk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXi-Ua-n4F">
-                                <rect key="frame" x="112" y="441" width="151" height="72"/>
+                                <rect key="frame" x="112" y="287" width="151" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Completar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="complete:" destination="dZA-8h-Hg3" eventType="touchUpInside" id="CKK-L5-WvT"/>
-                                    <segue destination="7IT-IZ-us3" kind="unwind" unwindAction="unwind:" id="ebG-ME-Lwy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAd-vh-Bzv">
-                                <rect key="frame" x="84" y="375" width="70" height="40"/>
+                                <rect key="frame" x="152" y="367" width="70" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Borrar">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -179,7 +167,6 @@
                                 </state>
                                 <connections>
                                     <action selector="delete:" destination="dZA-8h-Hg3" eventType="touchUpInside" id="y1A-eY-nfh"/>
-                                    <segue destination="7IT-IZ-us3" kind="unwind" unwindAction="unwind:" id="MmV-m3-QIo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWX-2u-O1J">
@@ -191,17 +178,32 @@
                                     <segue destination="7IT-IZ-us3" kind="unwind" unwindAction="unwind:" id="5xh-K7-LYw"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWJ-bY-7m6">
+                                <rect key="frame" x="161" y="415" width="53" height="30"/>
+                                <state key="normal" title="Unwind">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="7IT-IZ-us3" kind="unwind" unwindAction="unwind:" id="bAk-N6-bh4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="Kjt-iu-g0e"/>
+                    <navigationItem key="navigationItem" title="Title" id="Kjt-iu-g0e">
+                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="hhn-9s-v3F">
+                            <connections>
+                                <action selector="save:" destination="dZA-8h-Hg3" id="wkD-tM-bb3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="btnDelete" destination="zAd-vh-Bzv" id="DPW-zI-1aq"/>
                         <outlet property="btnPriority" destination="6x5-Nv-JyU" id="sun-3u-AhS"/>
-                        <outlet property="btnSave" destination="HOQ-t2-Saz" id="dh4-id-w6g"/>
+                        <outlet property="btnUnwind" destination="TWJ-bY-7m6" id="sWz-ph-pmF"/>
                         <outlet property="txtList" destination="oU1-K2-UMH" id="AFa-ig-Ab2"/>
                         <outlet property="txtTask" destination="DJQ-99-F9J" id="VgN-it-cTB"/>
                     </connections>
@@ -439,10 +441,10 @@
             </objects>
             <point key="canvasLocation" x="-500.5" y="-0.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController title="Main" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -461,10 +463,10 @@
             </objects>
             <point key="canvasLocation" x="-32.5" y="-0.5"/>
         </scene>
-        <!--Perfil-->
+        <!--Profile-->
         <scene sceneID="f0T-0T-68S">
             <objects>
-                <tableViewController id="IDF-7N-1kj" sceneMemberID="viewController">
+                <tableViewController title="Profile" id="IDF-7N-1kj" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vjA-nl-atj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -543,13 +545,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qtr-Yx-H7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-32.5" y="1619.5"/>
+            <point key="canvasLocation" x="-122.5" y="690.5"/>
         </scene>
-        <!--Perfil-->
+        <!--Profile Controller-->
         <scene sceneID="y9y-om-4F8">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ek9-is-dSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="R0h-BR-dHr" sceneMemberID="viewController">
+                <navigationController title="Profile Controller" id="R0h-BR-dHr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Perfil" image="cog_01.png" id="U38-jI-Gmc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3TR-oV-Ffe">
@@ -563,10 +565,10 @@
             </objects>
             <point key="canvasLocation" x="-32.5" y="816.5"/>
         </scene>
-        <!--Decisiones-->
+        <!--Decissions-->
         <scene sceneID="y4D-sc-jDu">
             <objects>
-                <viewController id="Jhv-zq-dnm" sceneMemberID="viewController">
+                <viewController title="Decissions" id="Jhv-zq-dnm" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UFY-pr-h7R"/>
                         <viewControllerLayoutGuide type="bottom" id="NzW-vC-IWe"/>
@@ -592,10 +594,10 @@
             </objects>
             <point key="canvasLocation" x="545.5" y="816.5"/>
         </scene>
-        <!--Listas-->
+        <!--Lists & Tasks-->
         <scene sceneID="l7Z-bN-5p9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hwI-ZY-SLr" sceneMemberID="viewController">
+                <navigationController title="Lists &amp; Tasks" automaticallyAdjustsScrollViewInsets="NO" id="hwI-ZY-SLr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Listas" image="pencil.png" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Qt-j9-n49">

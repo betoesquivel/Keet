@@ -20,8 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    self.navigationItem.title = @"Listas";
+    NSString *title = [[NSString alloc] initWithFormat: @"Familia %@", appDelegate.family];
+    self.navigationItem.title = title;
     
     [self loadDataFromDatabase];
 }
@@ -60,11 +63,14 @@
 
 #pragma mark - Database
 
-- (PFQuery *)loadDataFromDatabase {
+- (void)loadDataFromDatabase {
     self.data = [[NSMutableArray alloc] init];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     PFQuery *query = [PFQuery queryWithClassName: @"Lista"];
     [query selectKeys: @[@"nombre"]];
+    [query whereKey: @"familia" equalTo: appDelegate.family];
     [query orderByAscending: @"nombre"];
     [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
         for (PFObject *list in lists) {
@@ -73,8 +79,6 @@
             [self.tableView reloadData];
         }
     }];
-    
-    return query;
 }
 
 - (void)saveDataToDatabase: (NSString *)title {
@@ -83,12 +87,17 @@
     PFObject *list = [PFObject objectWithClassName: @"Lista"];
     list[@"nombre"] = title;
     list[@"creador"] = appDelegate.user;
+    list[@"familia"] = appDelegate.family;
+    
     [list saveInBackground];
 }
 
 - (void)deleteDataFromDatabase: (NSString *) title {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
     [query whereKey: @"lista" equalTo: title];
+    [query whereKey: @"familia" equalTo: appDelegate.family];
     [query findObjectsInBackgroundWithBlock: ^(NSArray *tasks, NSError *error) {
         if (tasks) {
             for (PFObject *task in tasks) {
@@ -99,6 +108,7 @@
     
     query = [PFQuery queryWithClassName: @"Lista"];
     [query whereKey: @"nombre" equalTo: title];
+    [query whereKey: @"familia" equalTo: appDelegate.family];
     [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
         if (lists) {
             for (PFObject *list in lists) {
@@ -177,7 +187,6 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"taskSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];

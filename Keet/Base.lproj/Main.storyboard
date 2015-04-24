@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Azd-12-OeJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Lists View Controller-->
@@ -182,10 +183,23 @@
                                     <segue destination="7IT-IZ-us3" kind="unwind" unwindAction="unwind:" id="MmV-m3-QIo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWX-2u-O1J">
+                                <rect key="frame" x="16" y="20" width="61" height="30"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="7IT-IZ-us3" kind="unwind" unwindAction="unwind:" id="5xh-K7-LYw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="F5G-4Y-orS"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Title" id="Kjt-iu-g0e"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="btnDelete" destination="zAd-vh-Bzv" id="DPW-zI-1aq"/>
@@ -326,7 +340,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iE0-6a-hke">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iE0-6a-hke">
                                 <rect key="frame" x="109" y="324" width="156" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Iniciar Sesión">
@@ -336,30 +350,37 @@
                                     <segue destination="49e-Tb-3d3" kind="show" id="HWK-zS-qjG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Correo: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqu-La-ppD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqu-La-ppD">
                                 <rect key="frame" x="70" y="165" width="62" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tbs-v0-Qz7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tbs-v0-Qz7">
                                 <rect key="frame" x="165" y="161" width="138" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contraseña:  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZs-37-FxF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña:  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZs-37-FxF">
                                 <rect key="frame" x="70" y="237" width="103" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v9S-oI-aUt">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v9S-oI-aUt">
                                 <rect key="frame" x="167" y="233" width="138" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="fob-x5-nhT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmw-JJ-NUX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmw-JJ-NUX">
                                 <rect key="frame" x="134" y="374" width="107" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="9oG-aF-zxf"/>
+                                    <constraint firstAttribute="width" constant="107" id="Cle-MW-HIN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Suscribirse">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -369,12 +390,31 @@
                                     <segue destination="s6F-4F-BX2" kind="show" id="W9V-aP-SCt"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eY8-M8-Phy">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eY8-M8-Phy">
                                 <rect key="frame" x="169" y="438" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eY8-M8-Phy" firstAttribute="top" secondItem="Fmw-JJ-NUX" secondAttribute="bottom" constant="13" id="DZw-9P-fsL"/>
+                            <constraint firstItem="v9S-oI-aUt" firstAttribute="top" secondItem="tbs-v0-Qz7" secondAttribute="bottom" constant="42" id="EY4-gQ-hgk"/>
+                            <constraint firstItem="iE0-6a-hke" firstAttribute="leading" secondItem="PQZ-05-wC8" secondAttribute="leadingMargin" constant="93" id="Hyz-cx-elZ"/>
+                            <constraint firstItem="Xqu-La-ppD" firstAttribute="top" secondItem="CTv-ls-wZd" secondAttribute="bottom" constant="145" id="NLj-X6-9ff"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tbs-v0-Qz7" secondAttribute="trailing" constant="56" id="NOi-7P-eg0"/>
+                            <constraint firstItem="fZs-37-FxF" firstAttribute="top" secondItem="tbs-v0-Qz7" secondAttribute="bottom" constant="46" id="OTs-gC-pAK"/>
+                            <constraint firstItem="Xqu-La-ppD" firstAttribute="leading" secondItem="PQZ-05-wC8" secondAttribute="leadingMargin" constant="54" id="Oix-jC-rxH"/>
+                            <constraint firstItem="eY8-M8-Phy" firstAttribute="top" secondItem="iE0-6a-hke" secondAttribute="bottom" constant="60" id="OtX-Wv-k8r"/>
+                            <constraint firstItem="euO-lj-AFN" firstAttribute="top" secondItem="eY8-M8-Phy" secondAttribute="bottom" constant="192" id="gYd-VM-JwG"/>
+                            <constraint firstItem="Xqu-La-ppD" firstAttribute="leading" secondItem="fZs-37-FxF" secondAttribute="leading" id="iZ0-cC-tjm"/>
+                            <constraint firstItem="tbs-v0-Qz7" firstAttribute="leading" secondItem="Xqu-La-ppD" secondAttribute="trailing" constant="33" id="le1-tG-ocx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v9S-oI-aUt" secondAttribute="trailing" constant="54" id="ofT-ET-OVJ"/>
+                            <constraint firstItem="iE0-6a-hke" firstAttribute="centerX" secondItem="PQZ-05-wC8" secondAttribute="centerX" id="pT2-Qa-ipR"/>
+                            <constraint firstItem="Fmw-JJ-NUX" firstAttribute="centerX" secondItem="iE0-6a-hke" secondAttribute="centerX" id="qHe-7z-Sd8"/>
+                            <constraint firstItem="Fmw-JJ-NUX" firstAttribute="centerX" secondItem="eY8-M8-Phy" secondAttribute="centerX" id="uau-sl-OvG"/>
+                            <constraint firstItem="fZs-37-FxF" firstAttribute="top" secondItem="Xqu-La-ppD" secondAttribute="bottom" constant="51" id="vPF-mO-KzF"/>
+                            <constraint firstItem="iE0-6a-hke" firstAttribute="top" secondItem="fZs-37-FxF" secondAttribute="bottom" constant="66" id="wyG-HU-62f"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>

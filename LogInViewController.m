@@ -38,7 +38,7 @@
     PFQuery *query = [PFQuery queryWithClassName: @"User"];
     [query whereKey: @"email" equalTo: user];
     [query whereKey: @"password" equalTo: password];
-    [query selectKeys: @[@"username", @"password"]];
+    [query selectKeys: @[@"username", @"password", @"familia"]];
     
     PFObject *result = [query getFirstObject];
     
@@ -47,6 +47,7 @@
         
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.user = user;
+        appDelegate.family = result[@"familia"];
     }
 
     return self.valido;

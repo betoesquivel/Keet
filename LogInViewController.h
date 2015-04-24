@@ -16,6 +16,6 @@
 
 - (IBAction)btnSubscribe:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *lblMessage;
 
 @end

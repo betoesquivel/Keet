@@ -18,4 +18,10 @@
 
 - (IBAction)btnSubscribe:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UITextField *txtFamily;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblMessage;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnUnwind;
+
 @end

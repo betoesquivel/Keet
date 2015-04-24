@@ -23,10 +23,17 @@
     self.txtTask.text = self.oldTask;
     NSInteger index = [self.pri integerValue] - 1;
     [self.btnPriority setSelectedSegmentIndex: index];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(quitarTeclado)];
+    [self.view addGestureRecognizer: tap];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void) quitarTeclado {
+    [self.view endEditing: YES];
 }
 
 - (IBAction)save:(id)sender {

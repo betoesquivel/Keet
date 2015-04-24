@@ -78,12 +78,15 @@
 
 #pragma mark - Database
 
-- (PFQuery *)loadDataFromDatabase {
+- (void)loadDataFromDatabase {
     self.data = [[NSMutableArray alloc] init];
     self.priority = [[NSMutableArray alloc] init];
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
     [query whereKey:@"lista" equalTo: self.list];
+    [query whereKey:@"familia" equalTo: appDelegate.family];
     [query selectKeys: @[@"nombre", @"prioridad"]];
     [query orderByDescending: @"prioridad"];
     [query findObjectsInBackgroundWithBlock: ^(NSArray *tasks, NSError *error) {
@@ -97,23 +100,28 @@
             }
         }
     }];
-    
-    return query;
 }
 
 - (void)saveDataToDatabase: (NSString *)title prioridad: (NSString *)pri {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     PFObject *task = [PFObject objectWithClassName:@"Tarea"];
     task[@"nombre"] = title;
-    task[@"creador"] = @"Eduardo";
+    task[@"creador"] = appDelegate.user;
     task[@"lista"] = self.list;
     task[@"prioridad"] = pri;
+    task[@"familia"] = appDelegate.family;
+    
     [task saveInBackground];
 }
 
 - (void)updateTaskToDatabase: (NSString *)title withNewTitle: (NSString *)newTitle withPriority: (NSString *)pri {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
     [query whereKey: @"nombre" equalTo: title];
     [query whereKey: @"lista" equalTo: self.list];
+    [query whereKey: @"familia" equalTo: appDelegate.family];
     [query getFirstObjectInBackgroundWithBlock: ^(PFObject *tasks, NSError *error) {
         if (!error) {
             [tasks setObject: newTitle forKey: @"nombre"];
@@ -125,9 +133,12 @@
 }
 
 - (void)deleteTaskFromDatabase: (NSString *)title {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     PFQuery *query = [PFQuery queryWithClassName: @"Tarea"];
     [query whereKey: @"nombre" equalTo: title];
     [query whereKey: @"lista" equalTo: self.list];
+    [query whereKey: @"familia" equalTo: appDelegate.family];
     [query findObjectsInBackgroundWithBlock: ^(NSArray *tasks, NSError *error) {
         if (tasks) {
             for (PFObject *task in tasks) {

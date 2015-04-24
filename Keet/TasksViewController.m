@@ -122,14 +122,12 @@
     [query whereKey: @"nombre" equalTo: title];
     [query whereKey: @"lista" equalTo: self.list];
     [query whereKey: @"familia" equalTo: appDelegate.family];
-    [query getFirstObjectInBackgroundWithBlock: ^(PFObject *tasks, NSError *error) {
-        if (!error) {
-            [tasks setObject: newTitle forKey: @"nombre"];
-            [tasks setObject: pri forKey: @"prioridad"];
-            
-            [tasks saveInBackground];
-        }
-    }];
+    
+    PFObject *result = [query getFirstObject];
+    [result setObject: newTitle forKey: @"nombre"];
+    [result setObject: pri forKey: @"prioridad"];
+    
+    [result saveInBackground];
 }
 
 - (void)deleteTaskFromDatabase: (NSString *)title {
@@ -203,7 +201,7 @@
 
 #pragma mark - Protocol Detail Task
 
-- (void) updateTask: (NSString *)task withNewName: (NSString *)newTask withPriority: (NSString *)priority {
+- (void)updateTask: (NSString *)task withNewName: (NSString *)newTask withPriority: (NSString *)priority {
     NSInteger index = [self.data indexOfObject: task];
     
     [self.data removeObjectAtIndex: index];
@@ -215,7 +213,7 @@
     [self updateTaskToDatabase: task withNewTitle:newTask withPriority: priority];
 }
 
-- (void) deleteTask: (NSString *)task {
+- (void)deleteTask: (NSString *)task {
     NSInteger index = [self.data indexOfObject: task];
     
     [self.data removeObjectAtIndex: index];
@@ -225,7 +223,7 @@
     [self deleteTaskFromDatabase: task];
 }
 
-- (void) completeTask: (NSString *)task withPriority: (NSString *)priority {
+- (void)completeTask: (NSString *)task withPriority: (NSString *)priority {
     NSInteger index = [self.data indexOfObject: task];
     
     [self.data removeObjectAtIndex: index];

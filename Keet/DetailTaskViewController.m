@@ -44,14 +44,17 @@
     self.pri = [myNumber stringValue];
     
     [self.delegate updateTask: self.oldTask withNewName: self.task withPriority: self.pri];
+    [self.btnUnwind sendActionsForControlEvents: UIControlEventTouchUpInside];
 }
 
 - (IBAction)delete:(id)sender {
     [self.delegate deleteTask: self.oldTask];
+    [self.btnUnwind sendActionsForControlEvents: UIControlEventTouchUpInside];
 }
 
 - (IBAction)complete:(id)sender {
     [self.delegate completeTask: self.oldTask withPriority: self.pri];
+    [self.btnUnwind sendActionsForControlEvents: UIControlEventTouchUpInside];
 }
 
 @end

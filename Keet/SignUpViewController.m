@@ -39,6 +39,7 @@
         user[@"password"] = self.txtPassword.text;
         user[@"email"] = self.txtEmail.text;
         user[@"familia"] = self.txtFamily.text;
+        user[@"puntos"] = @"0";
         
         [user saveInBackground];
         

@@ -145,13 +145,10 @@
     [query whereKey: @"nombre" equalTo: title];
     [query whereKey: @"lista" equalTo: self.list];
     [query whereKey: @"familia" equalTo: appDelegate.family];
-    [query findObjectsInBackgroundWithBlock: ^(NSArray *tasks, NSError *error) {
-        if (tasks) {
-            for (PFObject *task in tasks) {
-                [task deleteInBackground];
-            }
-        }
-    }];
+    
+    PFObject *task = [query getFirstObject];
+    
+    [task deleteInBackground];
 }
 
 - (void)completeTaskInDatabase:(NSString *)title withPriority: (NSString *)pri {
@@ -162,9 +159,23 @@
     task[@"usuario"] = appDelegate.user;
     task[@"lista"] = self.list;
     task[@"prioridad"] = pri;
+    task[@"familia"] = appDelegate.family;
+    
     [task saveInBackground];
     
     [self deleteTaskFromDatabase: title];
+    
+    PFQuery *query = [PFQuery queryWithClassName: @"User"];
+    [query whereKey: @"email" equalTo: appDelegate.user];
+    
+    task = [query getFirstObject];
+
+    NSInteger puntos = [task[@"puntos"] integerValue];
+    puntos += ([pri integerValue] * 10);
+    NSString *p = [[NSString alloc] initWithFormat: @"%ld", puntos];
+    
+    [task setObject: p forKey: @"puntos"];
+    [task saveInBackground];
 }
 
 #pragma mark - Table view data source

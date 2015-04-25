@@ -30,6 +30,13 @@
     [self.view endEditing: YES];
 }
 
+- (IBAction)btnSubscribe:(id)sender {
+    if ([self.txtEmail.text isEqualToString: @""] || [self.txtUser.text isEqualToString: @""] || [self.txtFamily.text isEqualToString: @""] || [self.txtPassword.text isEqualToString: @""])
+        self.lblMessage.text = @"Por favor llene todo los campos";
+    else if ([self saveUser])
+        [self.btnUnwind sendActionsForControlEvents: UIControlEventTouchUpInside];
+}
+
 #pragma mark - Database
 
 - (BOOL)saveUser {
@@ -61,13 +68,6 @@
         return false;
     
     return true;
-}
-
-- (IBAction)btnSubscribe:(id)sender {
-    if ([self.txtEmail.text isEqualToString: @""] || [self.txtUser.text isEqualToString: @""] || [self.txtFamily.text isEqualToString: @""] || [self.txtPassword.text isEqualToString: @""])
-        self.lblMessage.text = @"Por favor llene todo los campos";
-    else if ([self saveUser])
-        [self.btnUnwind sendActionsForControlEvents: UIControlEventTouchUpInside];
 }
 
 @end

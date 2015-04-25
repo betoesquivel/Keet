@@ -28,6 +28,10 @@
     [self loadDataFromDatabase];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self viewDidLoad];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -45,18 +49,19 @@
     [query selectKeys: @[@"username", @"email", @"puntos"]];
     [query whereKey: @"familia" equalTo: appDelegate.family];
     [query orderByAscending: @"nombre"];
-    [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
-        for (PFObject *list in lists) {
-            NSString *s = list[@"username"];
-            [self.names addObject: s];
-            s = list[@"email"];
-            [self.emails addObject: s];
-            s = list[@"puntos"];
-            [self.points addObject: s];
-            
-            [self.tableView reloadData];
-        }
-    }];
+
+    NSArray *members = [query findObjects];
+    
+    for (PFObject *member in members) {
+        NSString *s = member[@"username"];
+        [self.names addObject: s];
+        s = member[@"email"];
+        [self.emails addObject: s];
+        s = member[@"puntos"];
+        [self.points addObject: s];
+    }
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source

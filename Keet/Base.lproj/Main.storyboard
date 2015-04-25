@@ -560,7 +560,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gCr-qf-2Jp" id="2g7-7q-tmW">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i5o-y2-9ER">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Keet.png" highlightedImage="alarm.png" translatesAutoresizingMaskIntoConstraints="NO" id="i5o-y2-9ER">
                                             <rect key="frame" x="0.0" y="0.0" width="126" height="108"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omy-5m-2lT">
@@ -674,6 +674,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Keet.png" width="1024" height="1024"/>
+        <image name="alarm.png" width="26" height="26"/>
         <image name="cog_01.png" width="26" height="26"/>
         <image name="graph_bar.png" width="26" height="26"/>
         <image name="pencil.png" width="26" height="26"/>

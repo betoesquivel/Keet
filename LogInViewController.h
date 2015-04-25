@@ -14,8 +14,14 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 
-- (IBAction)btnSubscribe:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UILabel *lblMessage;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnLogged;
+
+- (IBAction)logIn:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnLogIn;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnSubscribe;
 
 @end

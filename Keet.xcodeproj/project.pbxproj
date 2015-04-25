@@ -24,6 +24,10 @@
 		35A0439E1ADF691900655881 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35A043971ADF691900655881 /* clock@2x.png */; };
 		35A043A01ADF694E00655881 /* alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35A0439F1ADF694D00655881 /* alarm@2x.png */; };
 		402803E61AEB37F200BBCEE4 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 402803E51AEB37F200BBCEE4 /* star.png */; };
+		402803E91AEB46A100BBCEE4 /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 402803E81AEB46A100BBCEE4 /* UserTableViewCell.m */; };
+		402803EC1AEB47A100BBCEE4 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 402803EB1AEB47A100BBCEE4 /* ProfileTableViewController.m */; };
+		402803EF1AEB50BD00BBCEE4 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 402803EE1AEB50BD00BBCEE4 /* UserDetailViewController.m */; };
+		402803F11AEB539200BBCEE4 /* person.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 402803F01AEB539200BBCEE4 /* person.jpg */; };
 		40420D6C1AEB20CD00C13A01 /* ChangeFamilyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40420D6B1AEB20CD00C13A01 /* ChangeFamilyTableViewCell.m */; };
 		40420D6F1AEB29A200C13A01 /* MembersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40420D6E1AEB29A200C13A01 /* MembersTableViewController.m */; };
 		40420D721AEB2B6800C13A01 /* MemberContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40420D711AEB2B6800C13A01 /* MemberContactTableViewCell.m */; };
@@ -80,6 +84,13 @@
 		35A043971ADF691900655881 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		35A0439F1ADF694D00655881 /* alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm@2x.png"; sourceTree = "<group>"; };
 		402803E51AEB37F200BBCEE4 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		402803E71AEB46A100BBCEE4 /* UserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
+		402803E81AEB46A100BBCEE4 /* UserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
+		402803EA1AEB47A100BBCEE4 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
+		402803EB1AEB47A100BBCEE4 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
+		402803ED1AEB50BD00BBCEE4 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
+		402803EE1AEB50BD00BBCEE4 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
+		402803F01AEB539200BBCEE4 /* person.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = person.jpg; sourceTree = "<group>"; };
 		40420D6A1AEB20CD00C13A01 /* ChangeFamilyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeFamilyTableViewCell.h; sourceTree = "<group>"; };
 		40420D6B1AEB20CD00C13A01 /* ChangeFamilyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeFamilyTableViewCell.m; sourceTree = "<group>"; };
 		40420D6D1AEB29A200C13A01 /* MembersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersTableViewController.h; sourceTree = "<group>"; };
@@ -169,18 +180,24 @@
 				40B0F8171ADEED4A007B9B7A /* SignUpViewController.h */,
 				351C63211ADC970100DD8FC4 /* TasksViewController.h */,
 				4045003D1ADE310800687CC1 /* DetailTaskViewController.h */,
+				402803EA1AEB47A100BBCEE4 /* ProfileTableViewController.h */,
 				40420D6A1AEB20CD00C13A01 /* ChangeFamilyTableViewCell.h */,
 				40420D6D1AEB29A200C13A01 /* MembersTableViewController.h */,
 				40420D701AEB2B6800C13A01 /* MemberContactTableViewCell.h */,
+				402803E71AEB46A100BBCEE4 /* UserTableViewCell.h */,
+				402803ED1AEB50BD00BBCEE4 /* UserDetailViewController.h */,
 				359CFF051ADC8F000031A416 /* AppDelegate.m */,
 				40C285111ADF307A00193004 /* LogInViewController.m */,
 				40B0F8181ADEED4A007B9B7A /* SignUpViewController.m */,
 				351C631F1ADC96E400DD8FC4 /* ListsViewController.m */,
 				351C63221ADC970100DD8FC4 /* TasksViewController.m */,
 				4045003E1ADE310800687CC1 /* DetailTaskViewController.m */,
+				402803EB1AEB47A100BBCEE4 /* ProfileTableViewController.m */,
 				40420D6B1AEB20CD00C13A01 /* ChangeFamilyTableViewCell.m */,
 				40420D6E1AEB29A200C13A01 /* MembersTableViewController.m */,
 				40420D711AEB2B6800C13A01 /* MemberContactTableViewCell.m */,
+				402803E81AEB46A100BBCEE4 /* UserTableViewCell.m */,
+				402803EE1AEB50BD00BBCEE4 /* UserDetailViewController.m */,
 				359CFF0D1ADC8F000031A416 /* Main.storyboard */,
 				359CFF121ADC8F000031A416 /* LaunchScreen.xib */,
 				359CFF101ADC8F000031A416 /* Images.xcassets */,
@@ -218,6 +235,7 @@
 		404500041ADE087700687CC1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				402803F01AEB539200BBCEE4 /* person.jpg */,
 				402803E51AEB37F200BBCEE4 /* star.png */,
 				35A0439F1ADF694D00655881 /* alarm@2x.png */,
 				35A043911ADF691900655881 /* graph_bar@2x.png */,
@@ -336,6 +354,7 @@
 				35A0439D1ADF691900655881 /* speech_bubble@2x.png in Resources */,
 				359CFF0F1ADC8F000031A416 /* Main.storyboard in Resources */,
 				35A0439B1ADF691900655881 /* cog_02@2x.png in Resources */,
+				402803F11AEB539200BBCEE4 /* person.jpg in Resources */,
 				4045FFE81ADE021200687CC1 /* Keet.png in Resources */,
 				35A0439E1ADF691900655881 /* clock@2x.png in Resources */,
 				35A0439A1ADF691900655881 /* cog_01@2x.png in Resources */,
@@ -366,6 +385,9 @@
 				40C285121ADF307A00193004 /* LogInViewController.m in Sources */,
 				40420D6C1AEB20CD00C13A01 /* ChangeFamilyTableViewCell.m in Sources */,
 				40420D721AEB2B6800C13A01 /* MemberContactTableViewCell.m in Sources */,
+				402803EC1AEB47A100BBCEE4 /* ProfileTableViewController.m in Sources */,
+				402803E91AEB46A100BBCEE4 /* UserTableViewCell.m in Sources */,
+				402803EF1AEB50BD00BBCEE4 /* UserDetailViewController.m in Sources */,
 				351C63201ADC96E400DD8FC4 /* ListsViewController.m in Sources */,
 				4045003F1ADE310800687CC1 /* DetailTaskViewController.m in Sources */,
 				359CFF061ADC8F000031A416 /* AppDelegate.m in Sources */,

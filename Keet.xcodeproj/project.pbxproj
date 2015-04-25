@@ -46,6 +46,7 @@
 		4045FFFD1ADE085600687CC1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF41ADE085600687CC1 /* Security.framework */; };
 		4045FFFE1ADE085600687CC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF51ADE085600687CC1 /* StoreKit.framework */; };
 		4045FFFF1ADE085600687CC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF61ADE085600687CC1 /* SystemConfiguration.framework */; };
+		409730C41AEB5ACA00F08586 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 409730C31AEB5ACA00F08586 /* Reachability.m */; };
 		40B0F8191ADEED4A007B9B7A /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0F8181ADEED4A007B9B7A /* SignUpViewController.m */; };
 		40C285121ADF307A00193004 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C285111ADF307A00193004 /* LogInViewController.m */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,8 @@
 		4045FFF41ADE085600687CC1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4045FFF51ADE085600687CC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4045FFF61ADE085600687CC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		409730C21AEB5ACA00F08586 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		409730C31AEB5ACA00F08586 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		40B0F8171ADEED4A007B9B7A /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		40B0F8181ADEED4A007B9B7A /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		40C2850F1ADF2F6600193004 /* ListsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListsViewController.h; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				402803EE1AEB50BD00BBCEE4 /* UserDetailViewController.m */,
 				359CFF0D1ADC8F000031A416 /* Main.storyboard */,
 				359CFF121ADC8F000031A416 /* LaunchScreen.xib */,
+				409730C21AEB5ACA00F08586 /* Reachability.h */,
+				409730C31AEB5ACA00F08586 /* Reachability.m */,
 				359CFF101ADC8F000031A416 /* Images.xcassets */,
 				359CFF001ADC8F000031A416 /* Supporting Files */,
 			);
@@ -392,6 +397,7 @@
 				4045003F1ADE310800687CC1 /* DetailTaskViewController.m in Sources */,
 				359CFF061ADC8F000031A416 /* AppDelegate.m in Sources */,
 				359CFF031ADC8F000031A416 /* main.m in Sources */,
+				409730C41AEB5ACA00F08586 /* Reachability.m in Sources */,
 				40B0F8191ADEED4A007B9B7A /* SignUpViewController.m in Sources */,
 				351C63231ADC970100DD8FC4 /* TasksViewController.m in Sources */,
 				40420D6F1AEB29A200C13A01 /* MembersTableViewController.m in Sources */,

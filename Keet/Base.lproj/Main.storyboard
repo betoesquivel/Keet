@@ -367,7 +367,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="HWK-zS-qjG"/>
+                                    <action selector="logIn:" destination="Azd-12-OeJ" eventType="touchUpInside" id="Mgp-EA-mVk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Correo: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqu-La-ppD">
@@ -399,12 +399,20 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnSubscribe:" destination="Azd-12-OeJ" eventType="touchUpInside" id="kNG-mn-lTb"/>
                                     <segue destination="s6F-4F-BX2" kind="show" id="W9V-aP-SCt"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9Y-yh-veq">
+                                <rect key="frame" x="164" y="455" width="53" height="30"/>
+                                <state key="normal" title="Logged">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="49e-Tb-3d3" kind="show" id="Ndr-iv-voU"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHT-T4-VoU">
-                                <rect key="frame" x="119" y="283" width="137" height="55"/>
+                                <rect key="frame" x="101" y="283" width="178" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -414,6 +422,9 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="btnLogIn" destination="iE0-6a-hke" id="cKI-x6-U0P"/>
+                        <outlet property="btnLogged" destination="M9Y-yh-veq" id="Wzm-v2-PgX"/>
+                        <outlet property="btnSubscribe" destination="Fmw-JJ-NUX" id="eq9-8L-yyt"/>
                         <outlet property="lblMessage" destination="SHT-T4-VoU" id="e9y-E6-YX1"/>
                         <outlet property="txtPassword" destination="v9S-oI-aUt" id="yhu-46-Rmi"/>
                         <outlet property="txtUser" destination="tbs-v0-Qz7" id="w2u-Zf-FQV"/>

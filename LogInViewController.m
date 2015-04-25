@@ -8,6 +8,7 @@
 
 #import "LogInViewController.h"
 #import "AppDelegate.h"
+#import "Reachability.h"
 #import <Parse/Parse.h>
 
 @interface LogInViewController ()
@@ -63,22 +64,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString: @"logIn"]) {
-        if ([self shouldPerformSegueWithIdentifier: [segue identifier] sender: sender])
-            NSLog(@"Hola");
-    }
-    else {
-        NSLog(@"Hola");
-    }
-}
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    [self verifyLogInInDatabase];
     
-    if (self.valido == false)
-        self.lblMessage.text = @"Usuario o contraseña inválidos";
-    
-    return self.valido;
 }
 
 - (IBAction)unwind: (UIStoryboardSegue *)segue {
@@ -86,6 +72,27 @@
 }
 
 - (IBAction)btnSubscribe:(id)sender {
-    self.valido = TRUE;
+    
+}
+
+- (IBAction)logIn:(id)sender {
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    
+    if (networkStatus == NotReachable) {
+        self.lblMessage.text = @"Sin conexión a internet Vuelva a abrir la aplicación";
+        self.btnLogIn.enabled = NO;
+        self.btnSubscribe.enabled = NO;
+    } else {
+        self.btnLogIn.enabled = YES;
+        self.btnSubscribe.enabled = YES;
+        
+        if ([self verifyLogInInDatabase])
+            [self.btnLogged sendActionsForControlEvents: UIControlEventTouchUpInside];
+        else
+            self.lblMessage.text = @"Usuario o contraseña inválidos";
+    }
+    
+    
 }
 @end

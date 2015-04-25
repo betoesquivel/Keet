@@ -12,19 +12,20 @@
 @implementation ChangeFamilyTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 -(void)changeFamily {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     appDelegate.family = @"Esquivel";
+    
+    self.selected = YES;
+    [NSThread sleepForTimeInterval:0.70];
+    self.selected = NO;
 }
 
 @end

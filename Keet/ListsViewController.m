@@ -76,13 +76,14 @@
     [query selectKeys: @[@"nombre"]];
     [query whereKey: @"familia" equalTo: appDelegate.family];
     [query orderByAscending: @"nombre"];
-    [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
-        for (PFObject *list in lists) {
-            NSString *s = list[@"nombre"];
-            [self.data addObject: s];
-            [self.tableView reloadData];
-        }
-    }];
+    NSArray *lists = [query findObjects];
+    
+    for (PFObject *list in lists) {
+        NSString *s = list[@"nombre"];
+        [self.data addObject: s];
+    }
+    
+    [self.tableView reloadData];
 }
 
 - (void)saveDataToDatabase: (NSString *)title {

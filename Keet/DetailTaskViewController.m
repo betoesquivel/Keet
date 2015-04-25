@@ -19,10 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.txtList.text = self.list;
+    self.lblList.text = self.list;
     self.txtTask.text = self.oldTask;
     NSInteger index = [self.pri integerValue] - 1;
     [self.btnPriority setSelectedSegmentIndex: index];
+    self.navigationItem.title = self.oldTask;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(quitarTeclado)];
     [self.view addGestureRecognizer: tap];

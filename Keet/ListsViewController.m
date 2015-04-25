@@ -29,6 +29,10 @@
     [self loadDataFromDatabase];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self viewDidLoad];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

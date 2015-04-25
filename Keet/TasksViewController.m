@@ -37,11 +37,11 @@
 #pragma mark - New Task
 
 - (IBAction)addButtonAction:(id)sender {
-    UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"Nueva Tarea"
-                                                   message:@"Nombre de la Tarea"
-                                                  delegate:self
-                                         cancelButtonTitle:@"Cancelar"
-                                         otherButtonTitles:@"Crear", nil];
+    UIAlertView *alert= [[UIAlertView alloc] initWithTitle: @"Nueva Tarea"
+                                                   message: @"Nombre de la Tarea"
+                                                  delegate: self
+                                         cancelButtonTitle: @"Cancelar"
+                                         otherButtonTitles: @"Crear", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     
     [alert setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
@@ -63,6 +63,14 @@
         if (title.length > 0) {
             if ([prioridad integerValue] >= 1 && [prioridad integerValue] <= 3)
                 [self addTaskWithTitle: title prioridad: prioridad];
+            else {
+                UIAlertView *alert= [[UIAlertView alloc] initWithTitle: @"Error"
+                                                               message: @"La prioridad debe ser un número entre 1 y 3"
+                                                              delegate: self
+                                                     cancelButtonTitle: @"Ok"
+                                                     otherButtonTitles: nil, nil];
+                [alert show];
+            }
         }
     }
 }

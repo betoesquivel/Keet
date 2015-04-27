@@ -27,6 +27,11 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.navigationItem.title = self.list;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget: self
+                            action: @selector(loadDataFromDatabase)
+                  forControlEvents: UIControlEventValueChanged];
+    
     [self loadDataFromDatabase];
 }
 
@@ -97,17 +102,18 @@
     [query whereKey:@"familia" equalTo: appDelegate.family];
     [query selectKeys: @[@"nombre", @"prioridad"]];
     [query orderByDescending: @"prioridad"];
-    [query findObjectsInBackgroundWithBlock: ^(NSArray *tasks, NSError *error) {
-        if (tasks) {
-            for (PFObject *task in tasks) {
-                NSString *s = task[@"nombre"];
-                NSString *p = task[@"prioridad"];
-                [self.data addObject: s];
-                [self.priority addObject: p];
-                [self.tableView reloadData];
-            }
-        }
-    }];
+    
+    NSArray *tasks = [query findObjects];
+    
+    for (PFObject *task in tasks) {
+        NSString *s = task[@"nombre"];
+        [self.data addObject: s];
+        s = task[@"prioridad"];
+        [self.priority addObject: s];
+    }
+    
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
 }
 
 - (void)saveDataToDatabase: (NSString *)title prioridad: (NSString *)pri {

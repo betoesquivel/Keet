@@ -24,4 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnSubscribe;
 
+@property (nonatomic, strong) UITextField *activeField;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @end

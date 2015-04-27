@@ -20,6 +20,13 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(quitarTeclado)];
     [self.view addGestureRecognizer: tap];
+    
+    self.txtEmail.delegate = self;
+    self.txtFamily.delegate = self;
+    self.txtPassword.delegate = self;
+    self.txtUser.delegate = self;
+    
+    [self registerForKeyboardNotifications];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +42,21 @@
         self.lblMessage.text = @"Por favor llene todo los campos";
     else if ([self saveUser])
         [self.btnUnwind sendActionsForControlEvents: UIControlEventTouchUpInside];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual: self.txtFamily]) {
+        [textField resignFirstResponder];
+        
+        [self btnSubscribe: nil];
+    }
+    else {
+        NSInteger nextTag = textField.tag + 1;
+        UIResponder *nextResponder = [textField.superview viewWithTag:nextTag];
+        [nextResponder becomeFirstResponder];
+    }
+    
+    return YES;
 }
 
 #pragma mark - Database
@@ -68,6 +90,48 @@
         return false;
     
     return true;
+}
+
+#pragma mark - Scroll View
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+- (void)keyboardWasShown:(NSNotification*)aNotification {
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGRect bkgndRect = self.activeField.superview.frame;
+    bkgndRect.size.height += kbSize.height;
+    [self.activeField.superview setFrame:bkgndRect];
+    [self.scrollView setContentOffset:CGPointMake(0.0, self.activeField.frame.origin.y-kbSize.height) animated:YES];
+}
+
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGRect bkgndRect = self.activeField.superview.frame;
+    bkgndRect.size.height -= kbSize.height;
+    [self.activeField.superview setFrame:bkgndRect];
+    [self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.activeField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    self.activeField = nil;
 }
 
 @end

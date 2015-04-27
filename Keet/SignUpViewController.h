@@ -24,4 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnUnwind;
 
+@property (nonatomic, strong) UITextField *activeField;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @end

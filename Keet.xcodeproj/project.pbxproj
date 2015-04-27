@@ -46,6 +46,7 @@
 		4045FFFD1ADE085600687CC1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF41ADE085600687CC1 /* Security.framework */; };
 		4045FFFE1ADE085600687CC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF51ADE085600687CC1 /* StoreKit.framework */; };
 		4045FFFF1ADE085600687CC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF61ADE085600687CC1 /* SystemConfiguration.framework */; };
+		4090D4791AEDD06D00E770FE /* Keet2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4090D4781AEDD06D00E770FE /* Keet2.png */; };
 		409730C41AEB5ACA00F08586 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 409730C31AEB5ACA00F08586 /* Reachability.m */; };
 		40B0F8191ADEED4A007B9B7A /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B0F8181ADEED4A007B9B7A /* SignUpViewController.m */; };
 		40C285121ADF307A00193004 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C285111ADF307A00193004 /* LogInViewController.m */; };
@@ -114,6 +115,7 @@
 		4045FFF41ADE085600687CC1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4045FFF51ADE085600687CC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4045FFF61ADE085600687CC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4090D4781AEDD06D00E770FE /* Keet2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keet2.png; sourceTree = "<group>"; };
 		409730C21AEB5ACA00F08586 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		409730C31AEB5ACA00F08586 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		40B0F8171ADEED4A007B9B7A /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -179,8 +181,8 @@
 			children = (
 				359CFF041ADC8F000031A416 /* AppDelegate.h */,
 				40C285101ADF307A00193004 /* LogInViewController.h */,
-				40C2850F1ADF2F6600193004 /* ListsViewController.h */,
 				40B0F8171ADEED4A007B9B7A /* SignUpViewController.h */,
+				40C2850F1ADF2F6600193004 /* ListsViewController.h */,
 				351C63211ADC970100DD8FC4 /* TasksViewController.h */,
 				4045003D1ADE310800687CC1 /* DetailTaskViewController.h */,
 				402803EA1AEB47A100BBCEE4 /* ProfileTableViewController.h */,
@@ -251,6 +253,7 @@
 				35A043961ADF691900655881 /* speech_bubble@2x.png */,
 				35A043971ADF691900655881 /* clock@2x.png */,
 				4045FFE71ADE021200687CC1 /* Keet.png */,
+				4090D4781AEDD06D00E770FE /* Keet2.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			files = (
 				35A0439D1ADF691900655881 /* speech_bubble@2x.png in Resources */,
 				359CFF0F1ADC8F000031A416 /* Main.storyboard in Resources */,
+				4090D4791AEDD06D00E770FE /* Keet2.png in Resources */,
 				35A0439B1ADF691900655881 /* cog_02@2x.png in Resources */,
 				402803F11AEB539200BBCEE4 /* person.jpg in Resources */,
 				4045FFE81ADE021200687CC1 /* Keet.png in Resources */,
@@ -533,6 +537,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Keet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -550,6 +555,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Keet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

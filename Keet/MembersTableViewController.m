@@ -25,6 +25,11 @@
     NSString *title = [[NSString alloc] initWithFormat: @"Miembros Fam. %@", appDelegate.family];
     self.navigationItem.title = title;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget: self
+                            action: @selector(loadDataFromDatabase)
+                  forControlEvents: UIControlEventValueChanged];
+    
     [self loadDataFromDatabase];
 }
 
@@ -61,6 +66,7 @@
         [self.points addObject: s];
     }
     
+    [self.refreshControl endRefreshing];
     [self.tableView reloadData];
 }
 

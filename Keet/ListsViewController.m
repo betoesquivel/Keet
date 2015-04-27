@@ -17,6 +17,18 @@
 
 @implementation ListsViewController
 
+//RGB color macro
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+//RGB color macro with alpha
+#define UIColorFromRGBWithAlpha(rgbValue,a) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -25,6 +37,15 @@
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     NSString *title = [[NSString alloc] initWithFormat: @"Fam. %@", appDelegate.family];
     self.navigationItem.title = title;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget: self
+                            action: @selector(loadDataFromDatabase)
+                  forControlEvents: UIControlEventValueChanged];
+    
+    //self.tableView.backgroundColor = UIColorFromRGB(0xDADADA);
+    
+    [self.navigationController.navigationBar setBarTintColor: UIColorFromRGB(0xDADADA)];
     
     [self loadDataFromDatabase];
 }
@@ -83,6 +104,7 @@
         [self.data addObject: s];
     }
     
+    [self.refreshControl endRefreshing];
     [self.tableView reloadData];
 }
 

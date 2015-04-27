@@ -39,7 +39,7 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - New Task
+#pragma mark - Create Task
 
 - (IBAction)addButtonAction:(id)sender {
     UIAlertView *alert= [[UIAlertView alloc] initWithTitle: @"Nueva Tarea"
@@ -55,7 +55,7 @@
     UITextField *textFieldDescription = [alert textFieldAtIndex:0];
     textFieldDescription.placeholder = @"Nueva Tarea";
     UITextField *textFieldFileName = [alert textFieldAtIndex:1];
-    textFieldFileName.placeholder = @"Número entre 1 - 3";
+    textFieldFileName.placeholder = @"Número entre 1-3";
     
     [alert show];
 }

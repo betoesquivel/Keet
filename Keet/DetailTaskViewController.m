@@ -25,7 +25,7 @@
     [self.btnPriority setSelectedSegmentIndex: index];
     self.navigationItem.title = self.oldTask;
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(quitarTeclado)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(quitKeyboard)];
     [self.view addGestureRecognizer: tap];
 }
 
@@ -33,16 +33,19 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void) quitarTeclado {
+#pragma mark - Keyboard
+
+- (void) quitKeyboard {
     [self.view endEditing: YES];
 }
 
+#pragma mark - Button Actions
+
 - (IBAction)save:(id)sender {
     self.task = self.txtTask.text;
-    int theInteger;
-    theInteger = [self.btnPriority selectedSegmentIndex] + 1;
-    NSNumber *myNumber = [NSNumber numberWithInt: theInteger];
-    self.pri = [myNumber stringValue];
+    NSInteger priority;
+    priority = [self.btnPriority selectedSegmentIndex] + 1;
+    self.pri = [[NSString alloc] initWithFormat: @"%ld", priority];
     
     [self.delegate updateTask: self.oldTask withNewName: self.task withPriority: self.pri];
     [self.btnUnwind sendActionsForControlEvents: UIControlEventTouchUpInside];

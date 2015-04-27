@@ -25,7 +25,7 @@
     self.valido = FALSE;
     self.lblMessage.text = @"";
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(quitarTeclado)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(quitKeyboard)];
     [self.view addGestureRecognizer: tap];
     
     self.txtUser.text = @"";
@@ -41,7 +41,9 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void) quitarTeclado {
+#pragma mark - Keyboard
+
+- (void) quitKeyboard {
     [self.view endEditing: YES];
 }
 
@@ -90,13 +92,11 @@
     
 }
 
-- (IBAction)unwind: (UIStoryboardSegue *)segue {
+- (IBAction)unwind:(UIStoryboardSegue *)segue {
     [self viewDidLoad];
 }
 
-- (IBAction)btnSubscribe:(id)sender {
-    
-}
+#pragma mark - Button Actions
 
 - (IBAction)logIn:(id)sender {
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
@@ -121,8 +121,7 @@
 
 #pragma mark - Scroll View
 
-- (void)registerForKeyboardNotifications
-{
+- (void)registerForKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification object:nil];

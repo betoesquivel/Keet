@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(quitarTeclado)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(quitKeyboard)];
     [self.view addGestureRecognizer: tap];
     
     self.txtEmail.delegate = self;
@@ -33,15 +33,10 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void) quitarTeclado {
-    [self.view endEditing: YES];
-}
+#pragma mark - Keyboard
 
-- (IBAction)btnSubscribe:(id)sender {
-    if ([self.txtEmail.text isEqualToString: @""] || [self.txtUser.text isEqualToString: @""] || [self.txtFamily.text isEqualToString: @""] || [self.txtPassword.text isEqualToString: @""])
-        self.lblMessage.text = @"Por favor llene todo los campos";
-    else if ([self saveUser])
-        [self.btnUnwind sendActionsForControlEvents: UIControlEventTouchUpInside];
+- (void) quitKeyboard {
+    [self.view endEditing: YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -92,10 +87,18 @@
     return true;
 }
 
+#pragma mark - Button Actions
+
+- (IBAction)btnSubscribe:(id)sender {
+    if ([self.txtEmail.text isEqualToString: @""] || [self.txtUser.text isEqualToString: @""] || [self.txtFamily.text isEqualToString: @""] || [self.txtPassword.text isEqualToString: @""])
+        self.lblMessage.text = @"Por favor llene todo los campos";
+    else if ([self saveUser])
+        [self.btnUnwind sendActionsForControlEvents: UIControlEventTouchUpInside];
+}
+
 #pragma mark - Scroll View
 
-- (void)registerForKeyboardNotifications
-{
+- (void)registerForKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification object:nil];

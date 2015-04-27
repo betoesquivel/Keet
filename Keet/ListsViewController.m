@@ -43,8 +43,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
                             action: @selector(loadDataFromDatabase)
                   forControlEvents: UIControlEventValueChanged];
     
-    //self.tableView.backgroundColor = UIColorFromRGB(0xDADADA);
-    
     [self.navigationController.navigationBar setBarTintColor: UIColorFromRGB(0xDADADA)];
     
     [self loadDataFromDatabase];
@@ -58,7 +56,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - New List
+#pragma mark - Create List
 
 - (IBAction)addButtonAction:(id)sender {
     UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"Nueva Lista de Tareas"
@@ -73,14 +71,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 - (void)alertView:(UIAlertView *)alert didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex > 0) {
         NSString* title = [alert textFieldAtIndex:0].text;
-        if (title.length > 0) {
+        
+        if (title.length > 0)
             [self addListWithTitle:title];
-        }
     }
 }
 
 - (void)addListWithTitle: (NSString*)title {
     [self.data addObject: title];
+    
     [self.tableView reloadData];
     
     [self saveDataToDatabase: title];
@@ -175,42 +174,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
         [self deleteDataFromDatabase: listTitle];
     }
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 

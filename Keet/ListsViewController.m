@@ -17,23 +17,46 @@
 
 @implementation ListsViewController
 
+//RGB color macro
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+//RGB color macro with alpha
+#define UIColorFromRGBWithAlpha(rgbValue,a) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    NSString *title = [[NSString alloc] initWithFormat: @"Familia %@", appDelegate.family];
+    NSString *title = [[NSString alloc] initWithFormat: @"Fam. %@", appDelegate.family];
     self.navigationItem.title = title;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget: self
+                            action: @selector(loadDataFromDatabase)
+                  forControlEvents: UIControlEventValueChanged];
+    
+    [self.navigationController.navigationBar setBarTintColor: UIColorFromRGB(0xDADADA)];
+    
     [self loadDataFromDatabase];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - New List
+#pragma mark - Create List
 
 - (IBAction)addButtonAction:(id)sender {
     UIAlertView* alert= [[UIAlertView alloc] initWithTitle:@"Nueva Lista de Tareas"
@@ -48,14 +71,15 @@
 - (void)alertView:(UIAlertView *)alert didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex > 0) {
         NSString* title = [alert textFieldAtIndex:0].text;
-        if (title.length > 0) {
+        
+        if (title.length > 0)
             [self addListWithTitle:title];
-        }
     }
 }
 
 - (void)addListWithTitle: (NSString*)title {
     [self.data addObject: title];
+    
     [self.tableView reloadData];
     
     [self saveDataToDatabase: title];
@@ -72,13 +96,15 @@
     [query selectKeys: @[@"nombre"]];
     [query whereKey: @"familia" equalTo: appDelegate.family];
     [query orderByAscending: @"nombre"];
-    [query findObjectsInBackgroundWithBlock: ^(NSArray *lists, NSError *error) {
-        for (PFObject *list in lists) {
-            NSString *s = list[@"nombre"];
-            [self.data addObject: s];
-            [self.tableView reloadData];
-        }
-    }];
+    NSArray *lists = [query findObjects];
+    
+    for (PFObject *list in lists) {
+        NSString *s = list[@"nombre"];
+        [self.data addObject: s];
+    }
+    
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
 }
 
 - (void)saveDataToDatabase: (NSString *)title {
@@ -148,42 +174,6 @@
         [self deleteDataFromDatabase: listTitle];
     }
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - Navigation
 

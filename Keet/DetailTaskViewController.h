@@ -28,7 +28,7 @@
 
 @property (strong, nonatomic) NSString *pri;
 
-@property (weak, nonatomic) IBOutlet UITextField *txtList;
+@property (weak, nonatomic) IBOutlet UILabel *lblList;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtTask;
 
@@ -36,12 +36,12 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnDelete;
 
-@property (weak, nonatomic) IBOutlet UIButton *btnSave;
-
 - (IBAction)save:(id)sender;
 
 - (IBAction)delete:(id)sender;
 
 - (IBAction)complete:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnUnwind;
 
 @end

@@ -99,6 +99,7 @@
                 // the current family is not added in the array
                 currentFamily = [PFObject objectWithClassName: @"Familia"];
                 currentFamily[@"nombre"] = appDelegate.family;
+                currentFamily[@"createdBy"] = appDelegate.usuario;
             }else {
                 currentFamily = resultFamily;
             }

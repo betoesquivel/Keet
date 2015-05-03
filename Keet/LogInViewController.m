@@ -69,6 +69,7 @@
     NSString *password = self.txtPassword.text;
     
     PFQuery *query = [PFQuery queryWithClassName: @"User"];
+    [query includeKey:@"familias"];
     [query whereKey: @"email" equalTo: user];
     [query whereKey: @"password" equalTo: password];
     
@@ -87,17 +88,29 @@
         // find out if my families array contains the current family
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"nombre", appDelegate.family];
         NSArray *familias = appDelegate.familias;
+        PFObject *currentFamily;
         if (!familias) {
-        
-            // the current family is not added in the array
-            PFObject *currentFamily = [PFObject objectWithClassName: @"Familia"];
-            currentFamily[@"nombre"] = appDelegate.family;
+            PFQuery *checkFamily = [PFQuery queryWithClassName:@"Familia"];
+            [checkFamily whereKey:@"nombre" equalTo:appDelegate.family];
+            PFObject *resultFamily = [checkFamily getFirstObject];
+            
+            // the family doesn't exist.... add it
+            if (!resultFamily){
+                // the current family is not added in the array
+                currentFamily = [PFObject objectWithClassName: @"Familia"];
+                currentFamily[@"nombre"] = appDelegate.family;
+            }else {
+                currentFamily = resultFamily;
+            }
+            
             [result addObject:currentFamily forKey:@"familias"];
             // add the family
             [result saveInBackground];
             
+        }else {
+            currentFamily = [[familias filteredArrayUsingPredicate:predicate] objectAtIndex:0];
         }
-        
+        appDelegate.familia = currentFamily;
 
         
     }

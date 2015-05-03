@@ -18,6 +18,6 @@
 @property (strong, nonatomic) NSString *user;
 
 @property (strong, nonatomic) PFObject *usuario;
+@property (strong, nonatomic) PFObject *familia;
 @property (strong, nonatomic) NSArray *familias;
-
 @end

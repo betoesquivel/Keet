@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -15,5 +16,8 @@
 @property (strong, nonatomic) NSString *family;
 
 @property (strong, nonatomic) NSString *user;
+
+@property (strong, nonatomic) PFObject *usuario;
+@property (strong, nonatomic) NSArray *familias;
 
 @end

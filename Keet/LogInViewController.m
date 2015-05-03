@@ -71,7 +71,6 @@
     PFQuery *query = [PFQuery queryWithClassName: @"User"];
     [query whereKey: @"email" equalTo: user];
     [query whereKey: @"password" equalTo: password];
-    [query selectKeys: @[@"username", @"password", @"familia"]];
     
     PFObject *result = [query getFirstObject];
     
@@ -81,6 +80,26 @@
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         appDelegate.user = user;
         appDelegate.family = result[@"familia"];
+        appDelegate.usuario = result;
+        appDelegate.familias = result[@"familias"];
+        
+        // temp code to fill the db
+        // find out if my families array contains the current family
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"nombre", appDelegate.family];
+        NSArray *familias = appDelegate.familias;
+        if (!familias) {
+        
+            // the current family is not added in the array
+            PFObject *currentFamily = [PFObject objectWithClassName: @"Familia"];
+            currentFamily[@"nombre"] = appDelegate.family;
+            [result addObject:currentFamily forKey:@"familias"];
+            // add the family
+            [result saveInBackground];
+            
+        }
+        
+
+        
     }
 
     return self.valido;

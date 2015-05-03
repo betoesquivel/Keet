@@ -22,7 +22,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    NSString *title = [[NSString alloc] initWithFormat: @"Miembros Fam. %@", appDelegate.family];
+    NSString *title = [[NSString alloc] initWithFormat: @"Miembros Fam. %@", appDelegate.familia[@"nombre"]];
     self.navigationItem.title = title;
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -51,10 +51,13 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     PFQuery *query = [PFQuery queryWithClassName: @"User"];
+    [query whereKey:@"familias" equalTo: appDelegate.familia];
+    [query includeKey:@"familias"];
+/*
     [query selectKeys: @[@"username", @"email", @"puntos"]];
     [query whereKey: @"familia" equalTo: appDelegate.family];
     [query orderByAscending: @"nombre"];
-
+*/
     NSArray *members = [query findObjects];
     
     for (PFObject *member in members) {

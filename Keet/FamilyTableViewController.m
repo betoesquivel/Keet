@@ -64,7 +64,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [_families objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[_families objectAtIndex:indexPath.row] objectForKey:@"nombre"];
     return cell;
 }
 

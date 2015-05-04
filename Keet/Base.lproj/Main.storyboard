@@ -504,7 +504,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvs-5W-MHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1557.5" y="797.5"/>
+            <point key="canvasLocation" x="1561.5" y="645.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="f0T-0T-68S">
@@ -565,6 +565,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="changeFamily" destination="RD3-yL-D83" eventType="touchUpInside" id="xjk-PJ-Shb"/>
+                                                        <segue destination="c1C-Dh-l6b" kind="show" id="8Ia-Oo-GRN"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

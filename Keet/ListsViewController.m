@@ -37,13 +37,17 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     NSString *title = [[NSString alloc] initWithFormat: @"Fam. %@", appDelegate.family];
     self.navigationItem.title = title;
+    [self.navigationController.navigationBar setTitleTextAttributes: @{NSForegroundColorAttributeName : UIColorFromRGB(0xF3812D)}];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget: self
                             action: @selector(loadDataFromDatabase)
                   forControlEvents: UIControlEventValueChanged];
     
-    [self.navigationController.navigationBar setBarTintColor: UIColorFromRGB(0xDADADA)];
+    [self.navigationController.navigationBar setBarTintColor: UIColorFromRGB(0x71C6EF)];
+    [self.navigationController.navigationBar setTintColor: UIColorFromRGB(0xF3812D)];
+    
+    [self.tabBarController.tabBar setTintColor: UIColorFromRGB(0xF3812D)];
     
     [self loadDataFromDatabase];
 }

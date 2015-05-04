@@ -148,8 +148,6 @@
         else
             self.lblMessage.text = @"Usuario o contraseña inválidos";
     }
-    
-    
 }
 
 #pragma mark - Scroll View

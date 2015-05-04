@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		351C63201ADC96E400DD8FC4 /* ListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 351C631F1ADC96E400DD8FC4 /* ListsViewController.m */; };
 		351C63231ADC970100DD8FC4 /* TasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 351C63221ADC970100DD8FC4 /* TasksViewController.m */; };
+		354F4DCD1AF7E46C00D1AEC7 /* FamilyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 354F4DCC1AF7E46C00D1AEC7 /* FamilyTableViewCell.m */; };
+		354F4DD01AF7E47D00D1AEC7 /* FamilyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354F4DCF1AF7E47D00D1AEC7 /* FamilyTableViewController.m */; };
 		359CFF031ADC8F000031A416 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 359CFF021ADC8F000031A416 /* main.m */; };
 		359CFF061ADC8F000031A416 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 359CFF051ADC8F000031A416 /* AppDelegate.m */; };
 		359CFF0F1ADC8F000031A416 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359CFF0D1ADC8F000031A416 /* Main.storyboard */; };
@@ -84,6 +86,10 @@
 		351C631F1ADC96E400DD8FC4 /* ListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListsViewController.m; sourceTree = "<group>"; };
 		351C63211ADC970100DD8FC4 /* TasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksViewController.h; sourceTree = "<group>"; };
 		351C63221ADC970100DD8FC4 /* TasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksViewController.m; sourceTree = "<group>"; };
+		354F4DCB1AF7E46C00D1AEC7 /* FamilyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyTableViewCell.h; sourceTree = "<group>"; };
+		354F4DCC1AF7E46C00D1AEC7 /* FamilyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyTableViewCell.m; sourceTree = "<group>"; };
+		354F4DCE1AF7E47D00D1AEC7 /* FamilyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyTableViewController.h; sourceTree = "<group>"; };
+		354F4DCF1AF7E47D00D1AEC7 /* FamilyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyTableViewController.m; sourceTree = "<group>"; };
 		359CFEFD1ADC8F000031A416 /* Keet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		359CFF011ADC8F000031A416 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		359CFF021ADC8F000031A416 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -240,6 +246,10 @@
 				402803E81AEB46A100BBCEE4 /* UserTableViewCell.m */,
 				402803EE1AEB50BD00BBCEE4 /* UserDetailViewController.m */,
 				359CFF0D1ADC8F000031A416 /* Main.storyboard */,
+				354F4DCB1AF7E46C00D1AEC7 /* FamilyTableViewCell.h */,
+				354F4DCC1AF7E46C00D1AEC7 /* FamilyTableViewCell.m */,
+				354F4DCE1AF7E47D00D1AEC7 /* FamilyTableViewController.h */,
+				354F4DCF1AF7E47D00D1AEC7 /* FamilyTableViewController.m */,
 				359CFF121ADC8F000031A416 /* LaunchScreen.xib */,
 				409730C21AEB5ACA00F08586 /* Reachability.h */,
 				409730C31AEB5ACA00F08586 /* Reachability.m */,
@@ -471,12 +481,14 @@
 				402803EF1AEB50BD00BBCEE4 /* UserDetailViewController.m in Sources */,
 				351C63201ADC96E400DD8FC4 /* ListsViewController.m in Sources */,
 				4045003F1ADE310800687CC1 /* DetailTaskViewController.m in Sources */,
+				354F4DCD1AF7E46C00D1AEC7 /* FamilyTableViewCell.m in Sources */,
 				359CFF061ADC8F000031A416 /* AppDelegate.m in Sources */,
 				359CFF031ADC8F000031A416 /* main.m in Sources */,
 				409730C41AEB5ACA00F08586 /* Reachability.m in Sources */,
 				40B0F8191ADEED4A007B9B7A /* SignUpViewController.m in Sources */,
 				351C63231ADC970100DD8FC4 /* TasksViewController.m in Sources */,
 				40420D6F1AEB29A200C13A01 /* MembersTableViewController.m in Sources */,
+				354F4DD01AF7E47D00D1AEC7 /* FamilyTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

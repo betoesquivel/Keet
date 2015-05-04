@@ -10,7 +10,7 @@
 #import "UserTableViewCell.h"
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-
+#import "CreateFamilyViewController.h"
 @interface ProfileTableViewController ()
 
 @end
@@ -42,6 +42,13 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0
     [super didReceiveMemoryWarning];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"create"]){
+        CreateFamilyViewController *vc = [segue destinationViewController];
+        vc.delegate = self;
+    }
+}
+
 #pragma mark - Database
 
 -(void)initUserCellFromDatabase {
@@ -55,6 +62,10 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0
     
     self.userCell.lblUsername.text = user[@"username"];
     self.userCell.lblEmail.text = appDelegate.user;
+}
+
+-(void) quitaVista {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

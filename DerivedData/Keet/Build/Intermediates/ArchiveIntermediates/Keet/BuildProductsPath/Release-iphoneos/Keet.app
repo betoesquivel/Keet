@@ -1,0 +1,1 @@
+/Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/DerivedData/Keet/Build/Intermediates/ArchiveIntermediates/Keet/InstallationBuildProductsLocation/Applications/Keet.app

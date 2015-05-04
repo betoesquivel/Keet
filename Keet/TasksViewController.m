@@ -205,6 +205,21 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSString *taskTitle = self.data[indexPath.row];
+        [self.data removeObjectAtIndex: indexPath.row];
+        [self.priority removeObjectAtIndex: indexPath.row];
+        [self.tableView reloadData];
+        [self deleteTaskFromDatabase: taskTitle];
+    }
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -35,6 +35,7 @@
 		4045FFFD1ADE085600687CC1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF41ADE085600687CC1 /* Security.framework */; };
 		4045FFFE1ADE085600687CC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF51ADE085600687CC1 /* StoreKit.framework */; };
 		4045FFFF1ADE085600687CC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4045FFF61ADE085600687CC1 /* SystemConfiguration.framework */; };
+		405F19BA1AF1B9640032D85E /* Keet3.png in Resources */ = {isa = PBXBuildFile; fileRef = 405F19B91AF1B9640032D85E /* Keet3.png */; };
 		4090D4C71AEDEBC400E770FE /* alarm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4090D47D1AEDEBC300E770FE /* alarm@2x.png */; };
 		4090D4CC1AEDEBC400E770FE /* bank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4090D4821AEDEBC300E770FE /* bank@2x.png */; };
 		4090D4D11AEDEBC400E770FE /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4090D4871AEDEBC300E770FE /* clock@2x.png */; };
@@ -121,6 +122,7 @@
 		4045FFF41ADE085600687CC1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4045FFF51ADE085600687CC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4045FFF61ADE085600687CC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		405F19B91AF1B9640032D85E /* Keet3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keet3.png; sourceTree = "<group>"; };
 		4090D47D1AEDEBC300E770FE /* alarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm@2x.png"; sourceTree = "<group>"; };
 		4090D4821AEDEBC300E770FE /* bank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bank@2x.png"; sourceTree = "<group>"; };
 		4090D4871AEDEBC300E770FE /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				4090D49A1AEDEBC300E770FE /* house@2x.png */,
 				4090D49B1AEDEBC300E770FE /* Keet.png */,
 				4090D49C1AEDEBC300E770FE /* Keet2.png */,
+				405F19B91AF1B9640032D85E /* Keet3.png */,
 				4090D49D1AEDEBC300E770FE /* letter_closed@2x.png */,
 				4090D49E1AEDEBC300E770FE /* letter_open@2x.png */,
 				4090D49F1AEDEBC300E770FE /* lightbulb@2x.png */,
@@ -374,7 +377,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
-				ORGANIZATIONNAME = "José Alberto Esquivel";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					359CFEFC1ADC8F000031A416 = {
 						CreatedOnToolsVersion = 6.3;
@@ -418,6 +421,7 @@
 				4090D50C1AEDEBC400E770FE /* star.png in Resources */,
 				4090D4E01AEDEBC400E770FE /* globe@2x.png in Resources */,
 				4090D4E11AEDEBC400E770FE /* graph_bar_trend@2x.png in Resources */,
+				405F19BA1AF1B9640032D85E /* Keet3.png in Resources */,
 				359CFF141ADC8F000031A416 /* LaunchScreen.xib in Resources */,
 				4090D4E41AEDEBC400E770FE /* house@2x.png in Resources */,
 				4090D4EF1AEDEBC400E770FE /* monitor@2x.png in Resources */,
@@ -605,10 +609,11 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Keet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SEPARATE_STRIP = NO;
 			};
 			name = Debug;
 		};
@@ -623,10 +628,11 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Keet/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SEPARATE_STRIP = NO;
 			};
 			name = Release;
 		};

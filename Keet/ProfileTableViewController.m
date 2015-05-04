@@ -31,7 +31,9 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationController.navigationBar setBarTintColor: UIColorFromRGB(0xDADADA)];
+    [self.navigationController.navigationBar setBarTintColor: UIColorFromRGB(0x71C6EF)];
+    [self.navigationController.navigationBar setTintColor: UIColorFromRGB(0xF3812D)];
+    [self.navigationController.navigationBar setTitleTextAttributes: @{NSForegroundColorAttributeName : UIColorFromRGB(0xF3812D)}];
     
     [self initUserCellFromDatabase];
 }

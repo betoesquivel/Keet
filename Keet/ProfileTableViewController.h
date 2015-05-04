@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "UserTableViewCell.h"
+#import "AddMembersViewController.h"
 
 @interface ProfileTableViewController : UITableViewController
+<RegresarAHome>
 
 @property (weak, nonatomic) IBOutlet UserTableViewCell *userCell;
 

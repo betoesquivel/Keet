@@ -197,6 +197,72 @@
             </objects>
             <point key="canvasLocation" x="1996.5" y="-794.5"/>
         </scene>
+        <!--Add Members View Controller-->
+        <scene sceneID="DDq-Iz-Mhd">
+            <objects>
+                <viewController id="61H-JK-ERh" customClass="AddMembersViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aCu-rR-aKH"/>
+                        <viewControllerLayoutGuide type="bottom" id="A9p-Jm-AFG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8VB-7I-6rs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oA-ZR-Xk6">
+                                <rect key="frame" x="98" y="324" width="178" height="30"/>
+                                <state key="normal" title="agregar miembro a familia">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMember:" destination="61H-JK-ERh" eventType="touchUpInside" id="7qW-Eu-ZFh"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4kN-aY-zw8">
+                                <rect key="frame" x="74" y="243" width="226" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Correo de nuevo miembro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMz-uu-QHM">
+                                <rect key="frame" x="87" y="197" width="201" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Introduce el correo del nuevo miembro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4i-Sf-XgJ">
+                                <rect key="frame" x="39" y="90" width="297" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfX-BE-uMt">
+                                <rect key="frame" x="158" y="362" width="57" height="30"/>
+                                <state key="normal" title="terminar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnToHome:" destination="61H-JK-ERh" eventType="touchUpInside" id="kFB-Gx-CTK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Asegúrese de que exista, primero." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQL-hW-r3Z">
+                                <rect key="frame" x="87" y="281" width="220" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="oEmail" destination="4kN-aY-zw8" id="Row-S9-clw"/>
+                        <outlet property="oInfoLabel" destination="hQL-hW-r3Z" id="epe-ep-vlf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xS2-mY-5su" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2891.5" y="1228.5"/>
+        </scene>
         <!--Chat-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
@@ -479,6 +545,33 @@
             </objects>
             <point key="canvasLocation" x="1040.5" y="839.5"/>
         </scene>
+        <!--Family Table View Controller-->
+        <scene sceneID="eVu-LL-Wfp">
+            <objects>
+                <tableViewController id="c1C-Dh-l6b" customClass="FamilyTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="zMI-Se-dov">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="80" id="p0K-PG-Gr8">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p0K-PG-Gr8" id="Sln-4M-cZ2">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="c1C-Dh-l6b" id="RPd-Ng-nEB"/>
+                            <outlet property="delegate" destination="c1C-Dh-l6b" id="tEY-k9-QVY"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wvs-5W-MHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3614.5" y="-537.5"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="f0T-0T-68S">
             <objects>
@@ -507,7 +600,7 @@
                                             <segue destination="ENi-eB-9lV" kind="show" id="NOx-V8-w0q"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Z0p-ow-POc" style="IBUITableViewCellStyleDefault" id="QYM-KM-5YQ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Z0p-ow-POc" style="IBUITableViewCellStyleDefault" id="QYM-KM-5YQ">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QYM-KM-5YQ" id="K8I-QY-PY4">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -520,6 +613,29 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <segue destination="EMV-2j-m7v" kind="presentation" identifier="create" id="cjN-N1-EWk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="dVw-l8-43X" style="IBUITableViewCellStyleDefault" id="QnQ-Re-5km">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QnQ-Re-5km" id="h3P-Za-ADg">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Agregar miembros a familia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dVw-l8-43X">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -538,6 +654,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="changeFamily" destination="RD3-yL-D83" eventType="touchUpInside" id="xjk-PJ-Shb"/>
+                                                        <segue destination="c1C-Dh-l6b" kind="show" id="8Ia-Oo-GRN"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -625,7 +742,70 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qtr-Yx-H7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040.5" y="-0.5"/>
+            <point key="canvasLocation" x="2256.5" y="87.5"/>
+        </scene>
+        <!--Create Family View Controller-->
+        <scene sceneID="zF6-Hl-sVm">
+            <objects>
+                <viewController id="EMV-2j-m7v" customClass="CreateFamilyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ihg-gE-9DN"/>
+                        <viewControllerLayoutGuide type="bottom" id="n1o-jC-JmG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GKP-wL-9nT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YwP-hi-HFg">
+                                <rect key="frame" x="83" y="95" width="218" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sma-Sq-o1c">
+                                <rect key="frame" x="169" y="397" width="47" height="30"/>
+                                <state key="normal" title="hidden">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="61H-JK-ERh" kind="presentation" id="YlS-87-N9Z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0e-m1-FlC">
+                                <rect key="frame" x="162" y="351" width="61" height="30"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelar:" destination="EMV-2j-m7v" eventType="touchUpInside" id="ZkH-HL-cAj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre de familia nueva:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htE-fP-a9C">
+                                <rect key="frame" x="94" y="40" width="196" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgK-eS-pQn">
+                                <rect key="frame" x="147" y="296" width="91" height="30"/>
+                                <state key="normal" title="Crear Familia">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createFamily:" destination="EMV-2j-m7v" eventType="touchUpInside" id="JaH-BQ-TDU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="oNewName" destination="YwP-hi-HFg" id="QbJ-3F-C3M"/>
+                        <outlet property="oSegueButton" destination="sma-Sq-o1c" id="zVB-w5-rZa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HxD-OJ-yy0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2235.5" y="1218.5"/>
         </scene>
         <!--Members Table View Controller-->
         <scene sceneID="XrY-2p-z5x">
@@ -687,7 +867,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMg-7B-IId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540.5" y="-0.5"/>
+            <point key="canvasLocation" x="3608.5" y="378.5"/>
         </scene>
         <!--Profile Controller-->
         <scene sceneID="y9y-om-4F8">

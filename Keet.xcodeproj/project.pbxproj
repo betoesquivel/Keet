@@ -13,6 +13,7 @@
 		354F4DD01AF7E47D00D1AEC7 /* FamilyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354F4DCF1AF7E47D00D1AEC7 /* FamilyTableViewController.m */; };
 		354F4DD31AF8023400D1AEC7 /* CreateFamilyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354F4DD21AF8023400D1AEC7 /* CreateFamilyViewController.m */; };
 		354F4DD61AF818BF00D1AEC7 /* AddMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354F4DD51AF818BF00D1AEC7 /* AddMembersViewController.m */; };
+		354F4DD91AF83F1600D1AEC7 /* FamilyAddMembersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354F4DD81AF83F1600D1AEC7 /* FamilyAddMembersTableViewController.m */; };
 		359CFF031ADC8F000031A416 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 359CFF021ADC8F000031A416 /* main.m */; };
 		359CFF061ADC8F000031A416 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 359CFF051ADC8F000031A416 /* AppDelegate.m */; };
 		359CFF0F1ADC8F000031A416 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359CFF0D1ADC8F000031A416 /* Main.storyboard */; };
@@ -96,6 +97,8 @@
 		354F4DD21AF8023400D1AEC7 /* CreateFamilyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateFamilyViewController.m; sourceTree = "<group>"; };
 		354F4DD41AF818BF00D1AEC7 /* AddMembersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMembersViewController.h; sourceTree = "<group>"; };
 		354F4DD51AF818BF00D1AEC7 /* AddMembersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMembersViewController.m; sourceTree = "<group>"; };
+		354F4DD71AF83F1600D1AEC7 /* FamilyAddMembersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FamilyAddMembersTableViewController.h; path = ../FamilyAddMembersTableViewController.h; sourceTree = "<group>"; };
+		354F4DD81AF83F1600D1AEC7 /* FamilyAddMembersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FamilyAddMembersTableViewController.m; path = ../FamilyAddMembersTableViewController.m; sourceTree = "<group>"; };
 		359CFEFD1ADC8F000031A416 /* Keet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		359CFF011ADC8F000031A416 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		359CFF021ADC8F000031A416 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 		359CFEFF1ADC8F000031A416 /* Keet */ = {
 			isa = PBXGroup;
 			children = (
+				354F4DD71AF83F1600D1AEC7 /* FamilyAddMembersTableViewController.h */,
+				354F4DD81AF83F1600D1AEC7 /* FamilyAddMembersTableViewController.m */,
 				359CFF041ADC8F000031A416 /* AppDelegate.h */,
 				40C285101ADF307A00193004 /* LogInViewController.h */,
 				40B0F8171ADEED4A007B9B7A /* SignUpViewController.h */,
@@ -500,6 +505,7 @@
 				351C63231ADC970100DD8FC4 /* TasksViewController.m in Sources */,
 				40420D6F1AEB29A200C13A01 /* MembersTableViewController.m in Sources */,
 				354F4DD01AF7E47D00D1AEC7 /* FamilyTableViewController.m in Sources */,
+				354F4DD91AF83F1600D1AEC7 /* FamilyAddMembersTableViewController.m in Sources */,
 				354F4DD31AF8023400D1AEC7 /* CreateFamilyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

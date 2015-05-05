@@ -570,7 +570,37 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvs-5W-MHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3614.5" y="-537.5"/>
+            <point key="canvasLocation" x="3479.5" y="-145.5"/>
+        </scene>
+        <!--Family Add Members Table View Controller-->
+        <scene sceneID="vxA-1N-9kB">
+            <objects>
+                <tableViewController id="0yt-SI-atN" customClass="FamilyAddMembersTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" id="IhS-oW-CNh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="61" id="pBL-sI-GGO">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pBL-sI-GGO" id="kjS-yw-uBe">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="61H-JK-ERh" kind="presentation" id="pPG-Fe-rrn"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0yt-SI-atN" id="lUb-Sz-6no"/>
+                            <outlet property="delegate" destination="0yt-SI-atN" id="gIx-gz-4Ee"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bi-uH-mlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3428.5" y="862.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="f0T-0T-68S">
@@ -620,7 +650,7 @@
                                             <segue destination="EMV-2j-m7v" kind="presentation" identifier="create" id="cjN-N1-EWk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="dVw-l8-43X" style="IBUITableViewCellStyleDefault" id="QnQ-Re-5km">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="dVw-l8-43X" style="IBUITableViewCellStyleDefault" id="QnQ-Re-5km">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QnQ-Re-5km" id="h3P-Za-ADg">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -636,6 +666,9 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="YES"/>
                                         </accessibility>
+                                        <connections>
+                                            <segue destination="0yt-SI-atN" kind="show" identifier="addMembersToFamily" id="cYf-zi-fAE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -654,7 +687,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="changeFamily" destination="RD3-yL-D83" eventType="touchUpInside" id="xjk-PJ-Shb"/>
-                                                        <segue destination="c1C-Dh-l6b" kind="show" id="8Ia-Oo-GRN"/>
+                                                        <segue destination="c1C-Dh-l6b" kind="show" identifier="agregarMiembros" id="8Ia-Oo-GRN"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -867,7 +900,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMg-7B-IId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3608.5" y="378.5"/>
+            <point key="canvasLocation" x="2920.5" y="-417.5"/>
         </scene>
         <!--Profile Controller-->
         <scene sceneID="y9y-om-4F8">
@@ -947,4 +980,7 @@
         <image name="speech_bubble.png" width="26" height="26"/>
         <image name="star.png" width="52" height="52"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pPG-Fe-rrn"/>
+    </inferredMetricsTieBreakers>
 </document>

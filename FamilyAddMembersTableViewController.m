@@ -33,11 +33,17 @@
 }
 
 - (void)loadDataFromUserObject {
-    [self.appDelegate.usuario refresh];
-    self.appDelegate.familias = self.appDelegate.usuario[@"familias"];
-    self.families = self.appDelegate.familias;
+    PFQuery *query = [PFQuery queryWithClassName:@"Familia"];
+    [query whereKey:@"createdBy" equalTo:self.appDelegate.usuario];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if (!error) {
+            self.families = [[NSMutableArray alloc] initWithArray:objects];
+            [self.tableView reloadData];
+        }else{
+            NSLog(@"Hubo un error!");
+        }
+    }];
     [self.refreshControl endRefreshing];
-    [self.tableView reloadData];
 }
 
 

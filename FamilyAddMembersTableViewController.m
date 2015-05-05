@@ -1,20 +1,19 @@
 //
-//  FamilyTableViewController.m
+//  FamilyAddMembersTableViewController.m
 //  Keet
 //
 //  Created by José Alberto Esquivel on 5/4/15.
 //
 //
 
-#import "FamilyTableViewController.h"
-#import "AppDelegate.h"
+#import "FamilyAddMembersTableViewController.h"
 #import "AddMembersViewController.h"
 
-@interface FamilyTableViewController ()
+@interface FamilyAddMembersTableViewController ()
 
 @end
 
-@implementation FamilyTableViewController
+@implementation FamilyAddMembersTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +29,7 @@
                   forControlEvents: UIControlEventValueChanged];
     
     [self loadDataFromUserObject];
-
+    
 }
 
 - (void)loadDataFromUserObject {
@@ -107,14 +106,10 @@
 
 
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    AddMembersViewController *vc = [segue destinationViewController];
-    vc.delegate = _delegate;
-    NSIndexPath *index  = [self.tableView indexPathForSelectedRow];
-    vc.family = self.families[index.row];
-}
-
-
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ AddMembersViewController *vc = [segue destinationViewController];
+ vc.delegate = _delegate;
+ NSIndexPath *index  = [self.tableView indexPathForSelectedRow];
+ vc.family = self.families[index.row];
+ }
 @end

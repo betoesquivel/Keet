@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "CreateFamilyViewController.h"
+#import "FamilyTableViewController.h"
+#import "FamilyAddMembersTableViewController.h"
 @interface ProfileTableViewController ()
 
 @end
@@ -45,6 +47,12 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"create"]){
         CreateFamilyViewController *vc = [segue destinationViewController];
+        vc.delegate = self;
+    }else if ( [[segue identifier] isEqualToString:@"agregarMiembros"]){
+        FamilyTableViewController *vc = [segue destinationViewController];
+        vc.delegate = self;
+    }else if ( [[segue identifier] isEqualToString:@"addMembersToFamily"]){
+        FamilyAddMembersTableViewController *vc = [segue destinationViewController];
         vc.delegate = self;
     }
 }

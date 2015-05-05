@@ -105,6 +105,13 @@
 }
 */
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    _appDelegate.familia = [_families objectAtIndex:indexPath.row];
+    _appDelegate.family = _appDelegate.familia[@"nombre"];
+    _appDelegate.usuario[@"familia"] = _appDelegate.familia[@"nombre"];
+    [_appDelegate.usuario saveInBackground];
+    [[self navigationController] popViewControllerAnimated:YES];
+}
 
 #pragma mark - Navigation
 

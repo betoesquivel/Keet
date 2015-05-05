@@ -19,13 +19,7 @@
 }
 
 -(void)changeFamily {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    appDelegate.family = @"Esquivel";
-    
-    self.selected = YES;
-    [NSThread sleepForTimeInterval:0.70];
-    self.selected = NO;
+
 }
 
 @end

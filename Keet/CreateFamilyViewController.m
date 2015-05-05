@@ -18,26 +18,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.oNewName.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)cancelar:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - Keyboard
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual: self.oNewName]) {
+        [textField resignFirstResponder];
+        
+        [self createFamily: nil];
+    }
+    
+    return YES;
+}
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     AddMembersViewController *vc = [segue destinationViewController];
     vc.family = _familiaNueva;
     vc.delegate = _delegate;
 }
+
+#pragma mark - Database
 
 - (IBAction)createFamily:(id)sender {
     if ([_oNewName.text length] > 0) {
@@ -74,4 +87,5 @@
         }
     }
 }
+
 @end

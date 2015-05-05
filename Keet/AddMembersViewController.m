@@ -17,23 +17,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.oEmail.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Keyboard
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual: self.oEmail]) {
+        [textField resignFirstResponder];
+        
+        [self addMember: nil];
+    }
+    
+    return YES;
 }
-*/
+
+#pragma mark - Database
 
 - (IBAction)addMember:(id)sender {
     if ([_oEmail.text length] > 0) {
@@ -52,7 +56,10 @@
     }
 }
 
+#pragma mark - Navigation
+
 - (IBAction)returnToHome:(id)sender {
     [_delegate quitaVista];
 }
+
 @end

@@ -19,6 +19,7 @@
 @property (strong, nonatomic) PFObject *family;
 @property (strong, nonatomic) id <RegresarAHome> delegate;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblMessage;
 - (IBAction)addMember:(id)sender;
 - (IBAction)returnToHome:(id)sender;
 

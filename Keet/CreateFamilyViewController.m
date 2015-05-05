@@ -57,12 +57,12 @@
                         if(succeeded) {
                             [_oSegueButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                         }else {
-                            _oNewName.text = @"Error al agregar la familia al usuario.";
+                            _oNewName.text = @"Error al agregar la familia al usuario";
                         }
                         
                     }];
                 } else {
-                    _oNewName.text = @"Error al agregar la familia a la base de datos.";
+                    _oNewName.text = @"Error al agregar la familia a la base de datos";
                 }
             }];
             
@@ -70,7 +70,7 @@
             // call the segue
             
         }else {
-            _oNewName.text = @"Esa familia ya existe.";
+            self.lblMessage.text = @"Esta familia ya existe";
         }
     }
 }

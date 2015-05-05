@@ -43,7 +43,7 @@
         [query whereKey:@"email" equalTo:_oEmail.text];
         PFObject *newMember= [query getFirstObject];
         if (!newMember) {
-            _oInfoLabel.text = @"No existe un usuario con ese correo o ya ha sido agregado a la familia.";
+            self.lblMessage.text = @"No existe un usuario con ese correo o ya ha sido agregado a la familia";
         }else {
             [newMember addObject:_family forKey:@"familias"];
             [newMember saveInBackground];

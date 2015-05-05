@@ -16,4 +16,5 @@
 @property (strong, nonatomic) id<RegresarAHome> delegate;
 - (IBAction)createFamily:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblMessage;
 @end

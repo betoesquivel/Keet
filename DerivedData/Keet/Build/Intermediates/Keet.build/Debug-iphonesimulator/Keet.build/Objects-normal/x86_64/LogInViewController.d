@@ -2,7 +2,6 @@ dependencies: \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/LogInViewController.m \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/LogInViewController.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/AppDelegate.h \
-  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/Reachability.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PF_Twitter.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PFTwitterUtils.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PFPush.h \
@@ -28,4 +27,5 @@ dependencies: \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PFNullability.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PFACL.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/Parse.h \
-  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Modules/module.modulemap
+  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Modules/module.modulemap \
+  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/Reachability.h

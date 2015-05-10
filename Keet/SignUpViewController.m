@@ -58,16 +58,36 @@
 
 - (BOOL)saveUser {
     if ([self verifyUser: self.txtEmail.text]) {
+        
         PFObject *user = [PFObject objectWithClassName: @"User"];
         user[@"username"] = self.txtUser.text;
         user[@"password"] = self.txtPassword.text;
         user[@"email"] = self.txtEmail.text;
         user[@"familia"] = self.txtFamily.text;
         user[@"puntos"] = @"0";
+    
+        PFQuery *queryFamily = [PFQuery queryWithClassName:@"Familia"];
+        [queryFamily whereKey: @"nombre" equalTo: self.txtFamily.text];
+        PFObject *resultFamily = [queryFamily getFirstObject];
         
-        [user saveInBackground];
-        
+        if (!resultFamily){
+            
+            PFObject *newFamily = [PFObject objectWithClassName:@"Familia"];
+            newFamily[@"nombre"] = self.txtFamily.text;
+            [newFamily saveInBackgroundWithBlock:^(BOOL succeed, NSError *error){
+                [user addObject:newFamily forKey:@"familias"];
+                [user saveInBackgroundWithBlock:^(BOOL succeed, NSError *error){
+                    newFamily[@"createdBy"] = user;
+                    [newFamily saveInBackground];
+                }];
+            }];
+            
+        }else {
+            [user addObject:resultFamily forKey:@"familias"];
+            [user saveInBackground];
+        }
         return true;
+        
     }
     
     self.lblMessage.text = @"Este correo ya está dado de alta";
@@ -91,7 +111,7 @@
 
 - (IBAction)btnSubscribe:(id)sender {
     if ([self.txtEmail.text isEqualToString: @""] || [self.txtUser.text isEqualToString: @""] || [self.txtFamily.text isEqualToString: @""] || [self.txtPassword.text isEqualToString: @""])
-        self.lblMessage.text = @"Por favor llene todo los campos";
+        self.lblMessage.text = @"Por favor llene todos los campos";
     else if ([self saveUser])
         [self.btnUnwind sendActionsForControlEvents: UIControlEventTouchUpInside];
 }

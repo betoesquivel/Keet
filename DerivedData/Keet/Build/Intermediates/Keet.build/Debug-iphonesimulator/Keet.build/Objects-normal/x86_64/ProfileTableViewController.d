@@ -2,7 +2,7 @@ dependencies: \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/ProfileTableViewController.m \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/ProfileTableViewController.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/UserTableViewCell.h \
-  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/AppDelegate.h \
+  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/AddMembersViewController.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PF_Twitter.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PFTwitterUtils.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PFPush.h \
@@ -28,4 +28,8 @@ dependencies: \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PFNullability.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/PFACL.h \
   /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Headers/Parse.h \
-  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Modules/module.modulemap
+  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Parse.framework/Modules/module.modulemap \
+  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/AppDelegate.h \
+  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/CreateFamilyViewController.h \
+  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/Keet/FamilyTableViewController.h \
+  /Users/eduardocristerna/Documents/6S/Móviles/Proyecto/Keet/FamilyAddMembersTableViewController.h

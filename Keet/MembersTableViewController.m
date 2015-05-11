@@ -56,8 +56,9 @@
 /*
     [query selectKeys: @[@"username", @"email", @"puntos"]];
     [query whereKey: @"familia" equalTo: appDelegate.family];
-    [query orderByAscending: @"nombre"];
-*/
+ */
+    [query orderByAscending: @"username"];
+    
     NSArray *members = [query findObjects];
     
     for (PFObject *member in members) {
